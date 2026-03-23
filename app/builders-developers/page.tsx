@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Premrest | Builders & Developers Managers | Commercial Floor Cleaning & Installs',
