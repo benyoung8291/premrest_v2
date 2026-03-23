@@ -326,25 +326,25 @@ margin: 0rem !important;
             <div class="nav_offcanvas_menu">
               <div class="nav_menu_block is-cream">
                 <div class="nav_menu_links_wrapper">
-                  <a href="cleaning.html" class="nav_menu_links w-inline-block">
+                  <a href="/cleaning" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Cleaning</div>
                   </a>
-                  <a href="installs.html" class="nav_menu_links w-inline-block">
+                  <a href="/installs" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Installs</div>
                   </a>
-                  <a href="special-projects.html" class="nav_menu_links w-inline-block">
+                  <a href="/special-projects" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Special projects</div>
                   </a>
-                  <a href="sustainability.html" class="nav_menu_links w-inline-block">
+                  <a href="/sustainability" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Sustainability</div>
                   </a>
-                  <a href="resources.html" class="nav_menu_links w-inline-block">
+                  <a href="/resources" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Resources</div>
                   </a>
-                  <a href="contact.html" class="nav_menu_links w-inline-block">
+                  <a href="/contact" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Contact</div>
                   </a>
-                  <a href="about.html" class="nav_menu_links w-inline-block">
+                  <a href="/about" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">About</div>
                   </a>
                   <div class="nav_contact_wrapper">
@@ -357,7 +357,7 @@ margin: 0rem !important;
               </div>
             </div>
             <div class="nav_block_logo">
-              <a href="index.html" class="nav_brand w-nav-brand">
+              <a href="/" class="nav_brand w-nav-brand">
                 <div class="logo logo-cream w-embed">
                   <?xml version="1.0" encoding="UTF-8"?>
                   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 223.7671322 34.5399933">
@@ -375,10 +375,10 @@ margin: 0rem !important;
             </div>
             <div class="nav_block flex-right">
               <nav role="navigation" class="nav_menu_desktop w-nav-menu">
-                <a href="cleaning.html" class="nav_menu_link light w-nav-link">Cleaning</a>
-                <a href="installs.html" class="nav_menu_link light w-nav-link">Installs</a>
-                <a href="sustainability.html" class="nav_menu_link light w-nav-link">Sustainability</a>
-                <a href="resources.html" class="nav_menu_link light w-nav-link">Resources</a>
+                <a href="/cleaning" class="nav_menu_link light w-nav-link">Cleaning</a>
+                <a href="/installs" class="nav_menu_link light w-nav-link">Installs</a>
+                <a href="/sustainability" class="nav_menu_link light w-nav-link">Sustainability</a>
+                <a href="/resources" class="nav_menu_link light w-nav-link">Resources</a>
                 <a href="tel:1300207915" class="button button-nav is-tertiary w-button">1300 207 915</a>
               </nav>
               <a href="tel:1300207915" class="call-icon-link w-inline-block">
@@ -479,7 +479,7 @@ margin: 0rem !important;
               </div>
               <div class="grid-1-column">
                 <div class="grid-column">
-                  <a id="w-node-_192880c3-b256-a8ea-2ecd-bcc0f3c05ff4-fcaa6bf4" href="resources.html" class="button w-button">View more resources</a>
+                  <a id="w-node-_192880c3-b256-a8ea-2ecd-bcc0f3c05ff4-fcaa6bf4" href="/resources" class="button w-button">View more resources</a>
                 </div>
               </div>
             </div>
@@ -494,7 +494,7 @@ margin: 0rem !important;
                 <h2 id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3f78-8734a448" class="home-solution-headline">Secure the masterpiece underneath your feet.</h2>
               </div>
               <div class="grid-3-columns grid-services">
-                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f80" style="opacity:0" href="cleaning.html" class="services-links w-inline-block">
+                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f80" style="opacity:0" href="/cleaning" class="services-links w-inline-block">
                   <div class="grid-column">
                     <div id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3f82-8734a448" class="services-content grid-column grid-column-services-cards">
                       <h3 class="services-headline">Revived floors, flawless facilities.</h3>
@@ -510,7 +510,7 @@ margin: 0rem !important;
                     </div>
                   </div>
                 </a>
-                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f8e" style="opacity:0" href="installs.html" class="services-links w-inline-block">
+                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f8e" style="opacity:0" href="/installs" class="services-links w-inline-block">
                   <div class="grid-column">
                     <div id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3f90-8734a448" class="services-content grid-column grid-column-services-cards">
                       <h3 class="services-headline">Crafted floor installs you can stand on.</h3>
@@ -526,7 +526,7 @@ margin: 0rem !important;
                     </div>
                   </div>
                 </a>
-                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f9c" style="opacity:0" href="special-projects.html" class="services-links w-inline-block">
+                <a data-w-id="7d9314d5-ad94-7f81-5091-ab8b5bad3f9c" style="opacity:0" href="/special-projects" class="services-links w-inline-block">
                   <div class="grid-column">
                     <div id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3f9e-8734a448" class="services-content grid-column grid-column-services-cards">
                       <h3 class="services-headline">The &#x27;not-quite flooring&#x27; conundrums.</h3>
@@ -545,7 +545,7 @@ margin: 0rem !important;
               </div>
             </div>
             <div class="grid-column padding-medium-top">
-              <a id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3fab-8734a448" href="contact.html" class="button w-button">Let&#x27;s chat</a>
+              <a id="w-node-_7d9314d5-ad94-7f81-5091-ab8b5bad3fab-8734a448" href="/contact" class="button w-button">Let&#x27;s chat</a>
             </div>
           </div>
         </div>
@@ -556,7 +556,7 @@ margin: 0rem !important;
             <div class="grid-wrapper">
               <div id="w-node-_2112c323-03fe-8b68-410e-4ec99fa3e67b-8734a448" class="grid-column grid-column-1">
                 <h2 id="w-node-_2112c323-03fe-8b68-410e-4ec99fa3e67c-8734a448" class="text-light home-final-headline">Let’s create floors that sweep you off your feet.</h2>
-                <a id="w-node-_2112c323-03fe-8b68-410e-4ec99fa3e67e-8734a448" href="contact.html" class="button home-final-button w-button">Let&#x27;s chat</a>
+                <a id="w-node-_2112c323-03fe-8b68-410e-4ec99fa3e67e-8734a448" href="/contact" class="button home-final-button w-button">Let&#x27;s chat</a>
               </div>
             </div>
           </div>
@@ -568,7 +568,7 @@ margin: 0rem !important;
             <div class="grid_wrapper">
               <div class="grid-4-columns">
                 <div id="w-node-_22174fed-6f0e-2c64-aeba-cd40839aef1e-839aef19" class="grid-column grid-column-footer grid-column-top">
-                  <a href="index.html" class="footer_logo_link w-inline-block"><img src="/images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
+                  <a href="/" class="footer_logo_link w-inline-block"><img src="/images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
                   <div class="footer-social-container">
                     <a href="https://au.linkedin.com/company/premrest" target="_blank" class="footer-social-linkedin-link w-inline-block"><img src="/images/linkedin.png" loading="lazy" alt="" class="footer-social-linkedin"></a>
                     <a href="https://www.instagram.com/premrestau/" target="_blank" class="footer-social-instagram-link w-inline-block"><img src="/images/instagram-1.png" loading="lazy" alt="" class="footer-social-instagram"></a>
@@ -579,42 +579,42 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Pages</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="cleaning.html" class="footer-list-link w-inline-block">
+                      <a href="/cleaning" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Cleaning</p>
                       </a>
                     </li>
                     <li>
-                      <a href="installs.html" class="footer-list-link w-inline-block">
+                      <a href="/installs" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Installs</p>
                       </a>
                     </li>
                     <li>
-                      <a href="special-projects.html" class="footer-list-link w-inline-block">
+                      <a href="/special-projects" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Special Projects</p>
                       </a>
                     </li>
                     <li>
-                      <a href="sustainability.html" class="footer-list-link w-inline-block">
+                      <a href="/sustainability" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Sustainability</p>
                       </a>
                     </li>
                     <li>
-                      <a href="industries.html" class="footer-list-link w-inline-block">
+                      <a href="/industries" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Industries</p>
                       </a>
                     </li>
                     <li>
-                      <a href="case-studies.html" class="footer-list-link w-inline-block">
+                      <a href="/case-studies" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Case Studies</p>
                       </a>
                     </li>
                     <li>
-                      <a href="resources.html" class="footer-list-link w-inline-block">
+                      <a href="/resources" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Resources</p>
                       </a>
                     </li>
                     <li>
-                      <a href="lets-talk-facilities.html" class="footer-list-link w-inline-block">
+                      <a href="/lets-talk-facilities" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Let&#x27;s Talk Facilities</p>
                       </a>
                     </li>
@@ -624,32 +624,32 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Help! I&#x27;m a...</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="facility-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/facility-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Facility Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="building-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/building-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Building Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="procurement-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/procurement-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Procurement Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="sustainability-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/sustainability-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Sustainability Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="general-cleaning-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/general-cleaning-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">General Cleaning Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="builders-developers.html" class="footer-list-link w-inline-block">
+                      <a href="/builders-developers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Builder or Developer</p>
                       </a>
                     </li>
@@ -659,12 +659,12 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Reference</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="about.html" class="footer-list-link w-inline-block">
+                      <a href="/about" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">About</p>
                       </a>
                     </li>
                     <li>
-                      <a href="contact.html" class="footer-list-link w-inline-block">
+                      <a href="/contact" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Contact</p>
                       </a>
                     </li>
@@ -674,12 +674,12 @@ margin: 0rem !important;
                       </a>
                     </li>
                     <li>
-                      <a href="privacy-policy.html" class="footer-list-link w-inline-block">
+                      <a href="/privacy-policy" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Privacy Policy</p>
                       </a>
                     </li>
                     <li>
-                      <a href="terms-of-service.html" class="footer-list-link w-inline-block">
+                      <a href="/terms-of-service" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Terms of Service</p>
                       </a>
                     </li>

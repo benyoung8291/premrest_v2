@@ -429,7 +429,7 @@ margin: 0rem !important;
           <div class="header-bar-container">
             <div class="grid-wrapper header-bar">
               <div class="grid-column">
-                <a href="index.html" class="header-bar is-active">Commercial</a>
+                <a href="/" class="header-bar is-active">Commercial</a>
               </div>
               <div class="grid-column">
                 <a href="https://resi.premrest.com.au" class="header-bar">Residential</a>
@@ -444,25 +444,25 @@ margin: 0rem !important;
             <div class="nav_offcanvas_menu">
               <div class="nav_menu_block">
                 <div class="nav_menu_links_wrapper">
-                  <a href="cleaning.html" class="nav_menu_links w-inline-block">
+                  <a href="/cleaning" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Cleaning</div>
                   </a>
-                  <a href="installs.html" class="nav_menu_links w-inline-block">
+                  <a href="/installs" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Installs</div>
                   </a>
-                  <a href="special-projects.html" class="nav_menu_links w-inline-block">
+                  <a href="/special-projects" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Special projects</div>
                   </a>
-                  <a href="sustainability.html" aria-current="page" class="nav_menu_links w-inline-block w--current">
+                  <a href="/sustainability" aria-current="page" class="nav_menu_links w-inline-block w--current">
                     <div class="hamburger-links">Sustainability</div>
                   </a>
-                  <a href="resources.html" class="nav_menu_links w-inline-block">
+                  <a href="/resources" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Resources</div>
                   </a>
-                  <a href="contact.html" class="nav_menu_links w-inline-block">
+                  <a href="/contact" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Contact</div>
                   </a>
-                  <a href="about.html" class="nav_menu_links w-inline-block">
+                  <a href="/about" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">About</div>
                   </a>
                   <div class="nav_contact_wrapper">
@@ -475,7 +475,7 @@ margin: 0rem !important;
               </div>
             </div>
             <div class="nav_block_logo">
-              <a href="index.html" class="nav_brand w-nav-brand">
+              <a href="/" class="nav_brand w-nav-brand">
                 <div class="logo logo-white w-embed">
                   <?xml version="1.0" encoding="UTF-8"?>
                   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 223.7671322 34.5399933">
@@ -493,10 +493,10 @@ margin: 0rem !important;
             </div>
             <div class="nav_block flex-right">
               <nav role="navigation" class="nav_menu_desktop w-nav-menu">
-                <a href="cleaning.html" class="nav_menu_link light w-nav-link">Cleaning</a>
-                <a href="installs.html" class="nav_menu_link light w-nav-link">Installs</a>
-                <a href="sustainability.html" aria-current="page" class="nav_menu_link light w-nav-link w--current">Sustainability</a>
-                <a href="resources.html" class="nav_menu_link light w-nav-link">Resources</a>
+                <a href="/cleaning" class="nav_menu_link light w-nav-link">Cleaning</a>
+                <a href="/installs" class="nav_menu_link light w-nav-link">Installs</a>
+                <a href="/sustainability" aria-current="page" class="nav_menu_link light w-nav-link w--current">Sustainability</a>
+                <a href="/resources" class="nav_menu_link light w-nav-link">Resources</a>
                 <a href="tel:1300207915" class="button button-nav is-secondary is-inverse w-button">1300 207 915</a>
               </nav>
               <a href="tel:1300207915" class="call-icon-link w-inline-block">
@@ -555,7 +555,7 @@ margin: 0rem !important;
                     <h1 data-w-id="5aeb109c-975f-166c-24c2-f2180fbb4601" style="opacity:0" class="hero-headline sustainability-hero-headline">Beautiful flooring doesn’t need to cost the earth</h1><img src="/images/Premrest_Rays_Blue.svg" loading="lazy" style="opacity:0" data-w-id="c1ca5cc6-7f60-5d61-8686-0739c2ee6dc1" alt="" class="sustainability-hero-rays">
                   </div>
                   <p data-w-id="5aeb109c-975f-166c-24c2-f2180fbb4603" style="opacity:0" class="text-size-large sustainability-hero-subheadline">Because flooring shouldn’t just look good, <strong>it should do good too.</strong></p>
-                  <a data-w-id="5aeb109c-975f-166c-24c2-f2180fbb4607" style="opacity:0" href="contact.html" class="button is-secondary is-inverse w-button">Let&#x27;s chat</a>
+                  <a data-w-id="5aeb109c-975f-166c-24c2-f2180fbb4607" style="opacity:0" href="/contact" class="button is-secondary is-inverse w-button">Let&#x27;s chat</a>
                 </div>
                 <div id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb4609-8d785d55" class="grid-column grid-column-inverse">
                   <div id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb460a-8d785d55" class="column-image-block"><img src="/images/Premrest_Sustainability_Hero_Blob.webp" loading="lazy" sizes="(max-width: 2000px) 100vw, 2000px" srcset="/images/Premrest_Sustainability_Hero_Blob-p-500.webp 500w, /images/Premrest_Sustainability_Hero_Blob-p-800.webp 800w, /images/Premrest_Sustainability_Hero_Blob-p-1080.webp 1080w, /images/Premrest_Sustainability_Hero_Blob-p-1600.webp 1600w, /images/Premrest_Sustainability_Hero_Blob.webp 2000w" alt="" class="hero-image hero-image-sustainability"><img src="/images/Premrest_DirtyShoe_Tan.svg" loading="lazy" alt="" class="sustainability-hero-image-clean"><img src="/images/Premrest_Scribble_Orange.svg" loading="lazy" alt="" class="sustainability-hero-image-scribble"></div>
@@ -576,7 +576,7 @@ margin: 0rem !important;
                 <div class="grid-column"><img src="/images/Premrest_SustainabilityEarth.svg" loading="lazy" alt="" class="sustainability_problem_globe">
                   <h2>Sustainability is woven into our fabric, and grounded in everything we do.</h2>
                   <p>Environmental responsibility is more than just ticking boxes or meeting targets. We’re fostering an environment for the generations; crafting floors that are as functional and elegant as they are kind to the planet.<br><br>We take a ruthless, uncompromising approach to sustainability across our cleans and installs. Our solutions shouldn’t just meet today’s needs, but safeguard tomorrow.<br><br>Sustainability starts underfoot.</p>
-                  <a href="contact.html" class="button is-green w-button">Let&#x27;s chat</a>
+                  <a href="/contact" class="button is-green w-button">Let&#x27;s chat</a>
                 </div>
               </div>
             </div>
@@ -591,7 +591,7 @@ margin: 0rem !important;
                 <div class="grid-column">
                   <h2 class="sustainability-in-cleaning">Sustainability in <span class="text-sustainability">cleaning</span></h2>
                   <p>We’re committed to reducing our environmental footprint while helping facilities meet their ambitious sustainability goals.<br><br>For over a decade, we’ve stepped away from traditional steam cleaning methods that rely on excessive resources and harsh chemicals, and only use it as a first step in a restoration clean. Instead, we focus on low moisture encapsulation, a technique that uses a fraction of the water, significantly cutting down waste and drying times.<br><br>Steam cleaning uses high pressure hot water to flush out dirt, but it typically removes only 75% of the water, shampoo and grime. This leaves 25% of waste behind, pushing stains deep into the backing of the carpet, causing them to wick back up and reappear as the carpet dries - often within a week.<br><br>Our low moisture encapsulation method breaks down dirt and grime into nano-sized particles, with 96% of it removed through regular vacuuming. This means that those problem stains aren’t coming back to haunt you.<br><br>We partner with facilities, buildings and national portfolios to help them meet ESG goals at scale to see great reductions in waste. That means spotless floors, without the environmental cost.</p>
-                  <a href="contact.html" class="button is-green w-button">Let&#x27;s chat</a>
+                  <a href="/contact" class="button is-green w-button">Let&#x27;s chat</a>
                 </div>
                 <div id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb4642-8d785d55" class="grid-column">
                   <div id="w-node-_5b3f58f4-cf24-98b4-2099-e8ec69e7b120-8d785d55" class="column-image-block"><img src="/images/Premrest_Cleaning_Steps_Blob_1.webp" loading="lazy" sizes="(max-width: 2000px) 100vw, 2000px" srcset="/images/Premrest_Cleaning_Steps_Blob_1-p-500.webp 500w, /images/Premrest_Cleaning_Steps_Blob_1-p-800.webp 800w, /images/Premrest_Cleaning_Steps_Blob_1-p-1080.webp 1080w, /images/Premrest_Cleaning_Steps_Blob_1-p-1600.webp 1600w, /images/Premrest_Cleaning_Steps_Blob_1.webp 2000w" alt="" class="section-image"></div>
@@ -1077,7 +1077,7 @@ margin: 0rem !important;
                 <div class="grid-column">
                   <h2 class="sustainability-in-installs">Sustainability in <span class="text-sustainability">installs</span></h2>
                   <p>Sustainability in commercial flooring isn’t just a goal for us, but a responsibility we embrace and steward well. From the materials chosen, how they’re sourced, to the installation processes, every stage of the fitout process offers an eco-conscious opportunity that we leverage across all projects.<br><br>One of the many ways we’re doing this is through our partnership with ResiLoop, an initiative by the Australian Resilient Flooring Association (ARFA).<br><br>Together, we’re joining forces to create a closed-loop system that recovers, recycles, and reuses waste materials from our projects to minimise landfill, and promote more sustainable installation practices. In Australia alone, over 9,000 tonnes of excess and offcuts never get walked on.<br><br>This partnership will see our vinyl installation waste be repurposed to create a host of construction products. Currently, all collected waste material is being recycled into a PVC garden edging product sold at Bunnings.<br><br>Together, we’re transforming the flooring industry, while looking after our planet at the same time.</p>
-                  <a href="contact.html" class="button is-green w-button">Let&#x27;s chat</a>
+                  <a href="/contact" class="button is-green w-button">Let&#x27;s chat</a>
                 </div>
                 <div id="w-node-_03c3ea75-828f-26d6-5dc7-1fee9f28a1c1-8d785d55" class="grid-column grid-column-inverse">
                   <div class="sustainability-installs-section-image-block"><img src="/images/logo-dark.webp" loading="lazy" alt="" class="resiloop-logo"><img src="/images/Premrest_Installs_Sustainability_Blob.webp" loading="lazy" sizes="(max-width: 2000px) 100vw, 2000px" srcset="/images/Premrest_Installs_Sustainability_Blob-p-500.webp 500w, /images/Premrest_Installs_Sustainability_Blob-p-800.webp 800w, /images/Premrest_Installs_Sustainability_Blob-p-1080.webp 1080w, /images/Premrest_Installs_Sustainability_Blob-p-1600.webp 1600w, /images/Premrest_Installs_Sustainability_Blob.webp 2000w" alt="" class="section-image"></div>
@@ -1096,7 +1096,7 @@ margin: 0rem !important;
                 <div class="grid-column">
                   <h2 class="text-light">Sustainability impact report</h2>
                   <p class="text-light">Low moisture encapsulation provides facility managers with spotless floors, but without the environmental cost. Calculate your impact and generate a report of how significantly less water, energy, chemicals and waste you&#x27;d be saving.</p>
-                  <a href="impact-calculator.html" class="button is-secondary is-inverse w-button">Calculate your impact</a>
+                  <a href="/impact-calculator" class="button is-secondary is-inverse w-button">Calculate your impact</a>
                 </div>
               </div>
             </div>
@@ -1109,7 +1109,7 @@ margin: 0rem !important;
             <div class="grid-wrapper">
               <div id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb46bb-8d785d55" class="grid-column grid-column-1">
                 <h2 id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb46bc-8d785d55" class="text-light home-final-headline">Let’s create floors that sweep you off your feet.</h2>
-                <a id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb46be-8d785d55" href="contact.html" class="button home-final-button is-green w-button">Let&#x27;s chat</a>
+                <a id="w-node-_5aeb109c-975f-166c-24c2-f2180fbb46be-8d785d55" href="/contact" class="button home-final-button is-green w-button">Let&#x27;s chat</a>
               </div>
             </div>
           </div>
@@ -1123,7 +1123,7 @@ margin: 0rem !important;
         <div class="grid_wrapper">
           <div class="grid-4-columns">
             <div id="w-node-_22174fed-6f0e-2c64-aeba-cd40839aef1e-839aef19" class="grid-column grid-column-footer grid-column-top">
-              <a href="index.html" class="footer_logo_link w-inline-block"><img src="/images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
+              <a href="/" class="footer_logo_link w-inline-block"><img src="/images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
               <div class="footer-social-container">
                 <a href="https://au.linkedin.com/company/premrest" target="_blank" class="footer-social-linkedin-link w-inline-block"><img src="/images/linkedin.png" loading="lazy" alt="" class="footer-social-linkedin"></a>
                 <a href="https://www.instagram.com/premrestau/" target="_blank" class="footer-social-instagram-link w-inline-block"><img src="/images/instagram-1.png" loading="lazy" alt="" class="footer-social-instagram"></a>
@@ -1134,42 +1134,42 @@ margin: 0rem !important;
               <h5 class="footer-heading"><strong>Pages</strong></h5>
               <ul role="list" class="footer-list w-list-unstyled">
                 <li>
-                  <a href="cleaning.html" class="footer-list-link w-inline-block">
+                  <a href="/cleaning" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Cleaning</p>
                   </a>
                 </li>
                 <li>
-                  <a href="installs.html" class="footer-list-link w-inline-block">
+                  <a href="/installs" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Installs</p>
                   </a>
                 </li>
                 <li>
-                  <a href="special-projects.html" class="footer-list-link w-inline-block">
+                  <a href="/special-projects" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Special Projects</p>
                   </a>
                 </li>
                 <li>
-                  <a href="sustainability.html" aria-current="page" class="footer-list-link w-inline-block w--current">
+                  <a href="/sustainability" aria-current="page" class="footer-list-link w-inline-block w--current">
                     <p class="footer-list-text">Sustainability</p>
                   </a>
                 </li>
                 <li>
-                  <a href="industries.html" class="footer-list-link w-inline-block">
+                  <a href="/industries" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Industries</p>
                   </a>
                 </li>
                 <li>
-                  <a href="case-studies.html" class="footer-list-link w-inline-block">
+                  <a href="/case-studies" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Case Studies</p>
                   </a>
                 </li>
                 <li>
-                  <a href="resources.html" class="footer-list-link w-inline-block">
+                  <a href="/resources" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Resources</p>
                   </a>
                 </li>
                 <li>
-                  <a href="lets-talk-facilities.html" class="footer-list-link w-inline-block">
+                  <a href="/lets-talk-facilities" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Let&#x27;s Talk Facilities</p>
                   </a>
                 </li>
@@ -1179,32 +1179,32 @@ margin: 0rem !important;
               <h5 class="footer-heading"><strong>Help! I&#x27;m a...</strong></h5>
               <ul role="list" class="footer-list w-list-unstyled">
                 <li>
-                  <a href="facility-managers.html" class="footer-list-link w-inline-block">
+                  <a href="/facility-managers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Facility Manager</p>
                   </a>
                 </li>
                 <li>
-                  <a href="building-managers.html" class="footer-list-link w-inline-block">
+                  <a href="/building-managers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Building Manager</p>
                   </a>
                 </li>
                 <li>
-                  <a href="procurement-managers.html" class="footer-list-link w-inline-block">
+                  <a href="/procurement-managers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Procurement Manager</p>
                   </a>
                 </li>
                 <li>
-                  <a href="sustainability-managers.html" class="footer-list-link w-inline-block">
+                  <a href="/sustainability-managers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Sustainability Manager</p>
                   </a>
                 </li>
                 <li>
-                  <a href="general-cleaning-managers.html" class="footer-list-link w-inline-block">
+                  <a href="/general-cleaning-managers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">General Cleaning Manager</p>
                   </a>
                 </li>
                 <li>
-                  <a href="builders-developers.html" class="footer-list-link w-inline-block">
+                  <a href="/builders-developers" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Builder or Developer</p>
                   </a>
                 </li>
@@ -1214,12 +1214,12 @@ margin: 0rem !important;
               <h5 class="footer-heading"><strong>Reference</strong></h5>
               <ul role="list" class="footer-list w-list-unstyled">
                 <li>
-                  <a href="about.html" class="footer-list-link w-inline-block">
+                  <a href="/about" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">About</p>
                   </a>
                 </li>
                 <li>
-                  <a href="contact.html" class="footer-list-link w-inline-block">
+                  <a href="/contact" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Contact</p>
                   </a>
                 </li>
@@ -1229,12 +1229,12 @@ margin: 0rem !important;
                   </a>
                 </li>
                 <li>
-                  <a href="privacy-policy.html" class="footer-list-link w-inline-block">
+                  <a href="/privacy-policy" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Privacy Policy</p>
                   </a>
                 </li>
                 <li>
-                  <a href="terms-of-service.html" class="footer-list-link w-inline-block">
+                  <a href="/terms-of-service" class="footer-list-link w-inline-block">
                     <p class="footer-list-text">Terms of Service</p>
                   </a>
                 </li>

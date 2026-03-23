@@ -326,25 +326,25 @@ margin: 0rem !important;
             <div class="nav_offcanvas_menu">
               <div class="nav_menu_block is-cream">
                 <div class="nav_menu_links_wrapper">
-                  <a href="../cleaning.html" class="nav_menu_links w-inline-block">
+                  <a href="/cleaning" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Cleaning</div>
                   </a>
-                  <a href="../installs.html" class="nav_menu_links w-inline-block">
+                  <a href="/installs" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Installs</div>
                   </a>
-                  <a href="../special-projects.html" class="nav_menu_links w-inline-block">
+                  <a href="/special-projects" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Special projects</div>
                   </a>
-                  <a href="../sustainability.html" class="nav_menu_links w-inline-block">
+                  <a href="/sustainability" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Sustainability</div>
                   </a>
-                  <a href="../resources.html" class="nav_menu_links w-inline-block">
+                  <a href="/resources" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Resources</div>
                   </a>
-                  <a href="../contact.html" class="nav_menu_links w-inline-block">
+                  <a href="/contact" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">Contact</div>
                   </a>
-                  <a href="../about.html" class="nav_menu_links w-inline-block">
+                  <a href="/about" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links dark">About</div>
                   </a>
                   <div class="nav_contact_wrapper">
@@ -357,7 +357,7 @@ margin: 0rem !important;
               </div>
             </div>
             <div class="nav_block_logo">
-              <a href="../index.html" class="nav_brand w-nav-brand">
+              <a href="/" class="nav_brand w-nav-brand">
                 <div class="logo logo-cream w-embed">
                   <?xml version="1.0" encoding="UTF-8"?>
                   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 223.7671322 34.5399933">
@@ -375,10 +375,10 @@ margin: 0rem !important;
             </div>
             <div class="nav_block flex-right">
               <nav role="navigation" class="nav_menu_desktop w-nav-menu">
-                <a href="../cleaning.html" class="nav_menu_link light w-nav-link">Cleaning</a>
-                <a href="../installs.html" class="nav_menu_link light w-nav-link">Installs</a>
-                <a href="../sustainability.html" class="nav_menu_link light w-nav-link">Sustainability</a>
-                <a href="../resources.html" class="nav_menu_link light w-nav-link">Resources</a>
+                <a href="/cleaning" class="nav_menu_link light w-nav-link">Cleaning</a>
+                <a href="/installs" class="nav_menu_link light w-nav-link">Installs</a>
+                <a href="/sustainability" class="nav_menu_link light w-nav-link">Sustainability</a>
+                <a href="/resources" class="nav_menu_link light w-nav-link">Resources</a>
                 <a href="tel:1300207915" class="button button-nav is-tertiary w-button">1300 207 915</a>
               </nav>
               <a href="tel:1300207915" class="call-icon-link w-inline-block">
@@ -439,7 +439,7 @@ margin: 0rem !important;
                   </div>
                   <p id="w-node-e3c2c193-9ab3-10e0-4384-2ca711f4c2e3-e958de0c" data-w-id="e3c2c193-9ab3-10e0-4384-2ca711f4c2e3" style="opacity:0" class="text-size-large home-hero-subheadline-new"><strong>Australia&#x27;s go-to for commercial floor care</strong>, cleaning and installing floors from small spaces to multi-level projects, with quality that flaws even the harshest critics.</p>
                   <div id="w-node-e3c2c193-9ab3-10e0-4384-2ca711f4c2e7-e958de0c">
-                    <a data-w-id="e3c2c193-9ab3-10e0-4384-2ca711f4c2e8" style="opacity:0" href="../contact.html" class="button is-tertiary w-button">Let&#x27;s chat</a>
+                    <a data-w-id="e3c2c193-9ab3-10e0-4384-2ca711f4c2e8" style="opacity:0" href="/contact" class="button is-tertiary w-button">Let&#x27;s chat</a>
                   </div>
                 </div>
                 <div id="w-node-e3c2c193-9ab3-10e0-4384-2ca711f4c2ea-e958de0c" class="home-hero-image-block">
@@ -463,7 +463,7 @@ margin: 0rem !important;
               </div>
               <div class="grid-6-columns">
                 <div class="grid-column weworkwith-columns">
-                  <a href="../facility-managers.html" class="weworkwith-links w-inline-block"><img src="../images/building.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/facility-managers" class="weworkwith-links w-inline-block"><img src="../images/building.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">Facility Manager</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/68004b084ec3177b50af46e4_right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -471,7 +471,7 @@ margin: 0rem !important;
                   </a>
                 </div>
                 <div class="grid-column weworkwith-columns">
-                  <a href="../building-managers.html" class="weworkwith-links w-inline-block"><img src="../images/apartment.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/building-managers" class="weworkwith-links w-inline-block"><img src="../images/apartment.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">Building Manager</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/68004b084ec3177b50af46e4_right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -479,7 +479,7 @@ margin: 0rem !important;
                   </a>
                 </div>
                 <div class="grid-column weworkwith-columns">
-                  <a href="../procurement-managers.html" class="weworkwith-links w-inline-block"><img src="../images/flowchart.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/procurement-managers" class="weworkwith-links w-inline-block"><img src="../images/flowchart.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">Procurement Manager</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/68004b084ec3177b50af46e4_right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -487,7 +487,7 @@ margin: 0rem !important;
                   </a>
                 </div>
                 <div class="grid-column weworkwith-columns">
-                  <a href="../sustainability-managers.html" class="weworkwith-links w-inline-block"><img src="../images/globe.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/sustainability-managers" class="weworkwith-links w-inline-block"><img src="../images/globe.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">Sustainability Manager</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -495,7 +495,7 @@ margin: 0rem !important;
                   </a>
                 </div>
                 <div class="grid-column weworkwith-columns">
-                  <a href="../general-cleaning-managers.html" class="weworkwith-links w-inline-block"><img src="../images/data-cleaning.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/general-cleaning-managers" class="weworkwith-links w-inline-block"><img src="../images/data-cleaning.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">General Cleaning Manager</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/68004b084ec3177b50af46e4_right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -503,7 +503,7 @@ margin: 0rem !important;
                   </a>
                 </div>
                 <div class="grid-column weworkwith-columns">
-                  <a href="../builders-developers.html" class="weworkwith-links w-inline-block"><img src="../images/drawing.png" loading="lazy" alt="" class="weworkwith-icons">
+                  <a href="/builders-developers" class="weworkwith-links w-inline-block"><img src="../images/drawing.png" loading="lazy" alt="" class="weworkwith-icons">
                     <h4 class="heading-style-h4 weworkwith-clients">Builder or Developer</h4>
                     <div class="weworkwith-link-group">
                       <h4 class="heading-style-h4 weworkwith-link">Learn more</h4><img src="../images/68004b084ec3177b50af46e4_right-arrow.png" loading="lazy" width="32" alt="" class="weworkwith-arrow">
@@ -526,7 +526,7 @@ margin: 0rem !important;
                 <div class="grid-column"><img src="../images/Premrest_DirtyShoe_Charcoal.svg" loading="lazy" width="Auto" height="200" alt="" class="home-problem-dirtyshoe">
                   <h2>Many commercial facilities are forsaking their largest canvas.</h2>
                   <p>Having been around for decades, time and time again we see floors that become an afterthought. They&#x27;re left to general cleaners who simply lack expertise and a PhD in floor care. Dirt, grime and wear are left to build up until you’re suddenly facing a bigger mess - and an even bigger bill.<br><br>It all leads to the same narrow path: tired, uninviting floors that wear out faster, skyrocketing restoration costs, even voided warranties. More stress, more downtime, and higher expenses that could have been avoided with a little more foresight.<br><br>What’s worse, subpar installations that don’t stack up to the demands of commercial use only exacerbate the problem. High quality flooring with aesthetic appeal should be a standard, not a luxury. We deliver long-lasting results that make your floors - and your facility shine.<br><br>Don’t let poor maintenance and half-hearted installations define your space. Transform your floors from a constant source of frustration, into the showpiece they were meant to be.</p>
-                  <a id="w-node-b0fda9bf-fc2c-8480-08c2-ecc7c58a86e9-e958de0c" href="../contact.html" class="button w-button">Let&#x27;s chat</a>
+                  <a id="w-node-b0fda9bf-fc2c-8480-08c2-ecc7c58a86e9-e958de0c" href="/contact" class="button w-button">Let&#x27;s chat</a>
                 </div>
               </div>
             </div>
@@ -539,7 +539,7 @@ margin: 0rem !important;
             <div class="grid_wrapper">
               <div class="grid-4-columns">
                 <div id="w-node-_22174fed-6f0e-2c64-aeba-cd40839aef1e-839aef19" class="grid-column grid-column-footer grid-column-top">
-                  <a href="../index.html" class="footer_logo_link w-inline-block"><img src="../images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
+                  <a href="/" class="footer_logo_link w-inline-block"><img src="../images/Premrest_Tagline_Charcoal-Orange.svg" loading="lazy" alt="" class="footer_logo"></a>
                   <div class="footer-social-container">
                     <a href="https://au.linkedin.com/company/premrest" target="_blank" class="footer-social-linkedin-link w-inline-block"><img src="../images/linkedin.png" loading="lazy" alt="" class="footer-social-linkedin"></a>
                     <a href="https://www.instagram.com/premrestau/" target="_blank" class="footer-social-instagram-link w-inline-block"><img src="../images/instagram-1.png" loading="lazy" alt="" class="footer-social-instagram"></a>
@@ -550,42 +550,42 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Pages</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="../cleaning.html" class="footer-list-link w-inline-block">
+                      <a href="/cleaning" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Cleaning</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../installs.html" class="footer-list-link w-inline-block">
+                      <a href="/installs" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Installs</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../special-projects.html" class="footer-list-link w-inline-block">
+                      <a href="/special-projects" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Special Projects</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../sustainability.html" class="footer-list-link w-inline-block">
+                      <a href="/sustainability" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Sustainability</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../industries.html" class="footer-list-link w-inline-block">
+                      <a href="/industries" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Industries</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../case-studies.html" class="footer-list-link w-inline-block">
+                      <a href="/case-studies" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Case Studies</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../resources.html" class="footer-list-link w-inline-block">
+                      <a href="/resources" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Resources</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../lets-talk-facilities.html" class="footer-list-link w-inline-block">
+                      <a href="/lets-talk-facilities" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Let&#x27;s Talk Facilities</p>
                       </a>
                     </li>
@@ -595,32 +595,32 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Help! I&#x27;m a...</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="../facility-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/facility-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Facility Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../building-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/building-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Building Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../procurement-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/procurement-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Procurement Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../sustainability-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/sustainability-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Sustainability Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../general-cleaning-managers.html" class="footer-list-link w-inline-block">
+                      <a href="/general-cleaning-managers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">General Cleaning Manager</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../builders-developers.html" class="footer-list-link w-inline-block">
+                      <a href="/builders-developers" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Builder or Developer</p>
                       </a>
                     </li>
@@ -630,12 +630,12 @@ margin: 0rem !important;
                   <h5 class="footer-heading"><strong>Reference</strong></h5>
                   <ul role="list" class="footer-list w-list-unstyled">
                     <li>
-                      <a href="../about.html" class="footer-list-link w-inline-block">
+                      <a href="/about" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">About</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../contact.html" class="footer-list-link w-inline-block">
+                      <a href="/contact" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Contact</p>
                       </a>
                     </li>
@@ -645,12 +645,12 @@ margin: 0rem !important;
                       </a>
                     </li>
                     <li>
-                      <a href="../privacy-policy.html" class="footer-list-link w-inline-block">
+                      <a href="/privacy-policy" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Privacy Policy</p>
                       </a>
                     </li>
                     <li>
-                      <a href="../terms-of-service.html" class="footer-list-link w-inline-block">
+                      <a href="/terms-of-service" class="footer-list-link w-inline-block">
                         <p class="footer-list-text">Terms of Service</p>
                       </a>
                     </li>
