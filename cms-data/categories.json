@@ -1,0 +1,28 @@
+[
+  {
+    "id": "6764ef3dd99af4f463521e36",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-02-13T23:10:47.982Z",
+    "lastUpdated": "2024-12-20T04:14:58.998Z",
+    "createdOn": "2024-12-20T04:14:53.797Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Installs",
+      "slug": "installs"
+    }
+  },
+  {
+    "id": "6764eee211c76e105f273b9c",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-02-13T23:10:47.982Z",
+    "lastUpdated": "2024-12-20T04:13:33.115Z",
+    "createdOn": "2024-12-20T04:13:22.539Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Cleaning",
+      "slug": "cleaning"
+    }
+  }
+]

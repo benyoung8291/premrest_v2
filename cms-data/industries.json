@@ -1,0 +1,132 @@
+[
+  {
+    "id": "68352cc97aca266b096ae6e4",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:09:17.964Z",
+    "lastUpdated": "2025-05-27T03:09:17.964Z",
+    "createdOn": "2025-05-27T03:08:57.714Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Commercial offices",
+      "slug": "commercial-office"
+    }
+  },
+  {
+    "id": "68352cb83fd5947ee8b81f51",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:08:40.826Z",
+    "lastUpdated": "2025-05-27T03:08:40.826Z",
+    "createdOn": "2025-05-27T03:08:40.826Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Professional services",
+      "slug": "professional-services"
+    }
+  },
+  {
+    "id": "68352ca2cf14fee819252c0d",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:08:18.979Z",
+    "lastUpdated": "2025-05-27T03:08:18.979Z",
+    "createdOn": "2025-05-27T03:08:18.979Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Banking & insurance",
+      "slug": "banking-insurance"
+    }
+  },
+  {
+    "id": "68352c8d513ce997bab16739",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:07:57.005Z",
+    "lastUpdated": "2025-05-27T03:07:57.005Z",
+    "createdOn": "2025-05-27T03:07:57.005Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Education",
+      "slug": "education"
+    }
+  },
+  {
+    "id": "68352c7f382584f63becf885",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:07:43.884Z",
+    "lastUpdated": "2025-05-27T03:07:43.884Z",
+    "createdOn": "2025-05-27T03:07:43.884Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Government",
+      "slug": "government"
+    }
+  },
+  {
+    "id": "68352c7140f51fc0e023c2f0",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:07:29.532Z",
+    "lastUpdated": "2025-05-27T03:07:29.532Z",
+    "createdOn": "2025-05-27T03:07:29.532Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Retail",
+      "slug": "retail"
+    }
+  },
+  {
+    "id": "68352c65a5bc3fee51a06d14",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:07:17.132Z",
+    "lastUpdated": "2025-05-27T03:07:17.132Z",
+    "createdOn": "2025-05-27T03:07:17.132Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Health",
+      "slug": "health"
+    }
+  },
+  {
+    "id": "68352c54e1ec4d2da1680981",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:07:00.992Z",
+    "lastUpdated": "2025-05-27T03:07:00.992Z",
+    "createdOn": "2025-05-27T03:07:00.992Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Fitness",
+      "slug": "fitness"
+    }
+  },
+  {
+    "id": "68352c413fb873b0cc249454",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:06:41.215Z",
+    "lastUpdated": "2025-05-27T03:06:41.215Z",
+    "createdOn": "2025-05-27T03:06:41.215Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "24/7 Call Centres",
+      "slug": "24-7-call-centres"
+    }
+  },
+  {
+    "id": "68352c1fdffa7a5f18bfc136",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:06:07.673Z",
+    "lastUpdated": "2025-05-27T03:06:07.673Z",
+    "createdOn": "2025-05-27T03:06:07.673Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Transport",
+      "slug": "transport"
+    }
+  }
+]

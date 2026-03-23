@@ -1,0 +1,57 @@
+[
+  {
+    "id": "68198e749112ca5f6e5c610c",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:04:43.572Z",
+    "lastUpdated": "2025-05-27T03:03:38.281Z",
+    "createdOn": "2025-05-06T04:22:12.407Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Webinar",
+      "slug": "webinars"
+    }
+  },
+  {
+    "id": "6786e7de2f26844defd6270b",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:04:43.572Z",
+    "lastUpdated": "2025-05-27T03:03:23.501Z",
+    "createdOn": "2025-01-14T22:40:30.165Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Podcast",
+      "slug": "podcasts",
+      "sort-order": 4
+    }
+  },
+  {
+    "id": "6786e7c9694a9e0dc44176bc",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:04:43.572Z",
+    "lastUpdated": "2025-05-27T03:03:12.887Z",
+    "createdOn": "2025-01-14T22:40:09.672Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Case Study",
+      "slug": "case-studies",
+      "sort-order": 2
+    }
+  },
+  {
+    "id": "6786e7bcd2ad235d1e6de75e",
+    "cmsLocaleId": "6764ce480fea74a61cc3a6d0",
+    "lastPublished": "2025-05-27T03:04:43.572Z",
+    "lastUpdated": "2025-05-27T03:03:01.965Z",
+    "createdOn": "2025-01-14T22:39:56.799Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "name": "Article",
+      "slug": "articles",
+      "sort-order": 1
+    }
+  }
+]
