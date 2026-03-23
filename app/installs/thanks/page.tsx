@@ -322,25 +322,25 @@ margin: 0rem !important;
             <div class="nav_offcanvas_menu">
               <div class="nav_menu_block">
                 <div class="nav_menu_links_wrapper">
-                  <a href="../cleaning.html" class="nav_menu_links w-inline-block">
+                  <a href="/cleaning" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Cleaning</div>
                   </a>
-                  <a href="../installs.html" class="nav_menu_links w-inline-block">
+                  <a href="/installs" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Installs</div>
                   </a>
-                  <a href="../special-projects.html" class="nav_menu_links w-inline-block">
+                  <a href="/special-projects" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Special projects</div>
                   </a>
-                  <a href="../sustainability.html" class="nav_menu_links w-inline-block">
+                  <a href="/sustainability" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Sustainability</div>
                   </a>
-                  <a href="../resources.html" class="nav_menu_links w-inline-block">
+                  <a href="/resources" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Resources</div>
                   </a>
-                  <a href="../contact.html" class="nav_menu_links w-inline-block">
+                  <a href="/contact" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">Contact</div>
                   </a>
-                  <a href="../about.html" class="nav_menu_links w-inline-block">
+                  <a href="/about" class="nav_menu_links w-inline-block">
                     <div class="hamburger-links">About</div>
                   </a>
                   <div class="nav_contact_wrapper">
@@ -353,7 +353,7 @@ margin: 0rem !important;
               </div>
             </div>
             <div class="nav_block_logo">
-              <a href="../index.html" class="nav_brand w-nav-brand">
+              <a href="/" class="nav_brand w-nav-brand">
                 <div class="logo logo-charcoal w-embed">
                   <?xml version="1.0" encoding="UTF-8"?>
                   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 223.7671322 34.5399933">
@@ -371,10 +371,10 @@ margin: 0rem !important;
             </div>
             <div class="nav_block flex-right">
               <nav role="navigation" class="nav_menu_desktop w-nav-menu">
-                <a href="../cleaning.html" class="nav_menu_link w-nav-link">Cleaning</a>
-                <a href="../installs.html" class="nav_menu_link w-nav-link">Installs</a>
-                <a href="../sustainability.html" class="nav_menu_link w-nav-link">Sustainability</a>
-                <a href="../resources.html" class="nav_menu_link w-nav-link">Resources</a>
+                <a href="/cleaning" class="nav_menu_link w-nav-link">Cleaning</a>
+                <a href="/installs" class="nav_menu_link w-nav-link">Installs</a>
+                <a href="/sustainability" class="nav_menu_link w-nav-link">Sustainability</a>
+                <a href="/resources" class="nav_menu_link w-nav-link">Resources</a>
                 <a href="tel:1300207915" class="button button-nav w-button">1300 207 915</a>
               </nav>
               <a href="tel:1300207915" class="call-icon-link w-inline-block">
@@ -431,7 +431,7 @@ margin: 0rem !important;
                 <div class="grid-column"><img src="../images/contact-image.svg" alt="" class="utility-page_image">
                   <h1 id="w-node-a94342f4-4426-ea09-6e69-fec6752c0657-2f1694d3" class="_404-heading">Thanks, you&#x27;re all set.</h1>
                   <div id="w-node-a94342f4-4426-ea09-6e69-fec6752c0659-2f1694d3" class="_404-text">Our team will respond to your enquiry before the dust settles.</div>
-                  <a id="w-node-a94342f4-4426-ea09-6e69-fec6752c065b-2f1694d3" href="../index.html" class="button _404-button w-button">Go back home</a>
+                  <a id="w-node-a94342f4-4426-ea09-6e69-fec6752c065b-2f1694d3" href="/" class="button _404-button w-button">Go back home</a>
                 </div>
               </div>
             </div>

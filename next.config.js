@@ -6,6 +6,14 @@ const nextConfig = {
       { protocol: 'https', hostname: 'cdn.prod.website-files.com' }
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/:path*.html',
+        destination: '/:path*',
+      },
+    ];
+  },
   async headers() {
     return [
       {
