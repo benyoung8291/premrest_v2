@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { colors, typography, spacing, layout, shadows, transitions, borderRadius } from '@/app/lib/tokens';
 
 interface MegaMenuItem {
@@ -80,11 +80,18 @@ export default function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const { scrollYProgress } = useScroll();
+  const progressScaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Hero-aware: white text when on hero (not scrolled), dark when scrolled
+  const textColor = scrolled ? colors.charcoal.DEFAULT : colors.white;
+  const logoFilter = scrolled ? 'none' : 'brightness(10)';
 
   return (
     <>
@@ -95,14 +102,14 @@ export default function Navigation() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          background: scrolled ? 'rgba(255,255,255,0.95)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? `1px solid ${colors.charcoal[100]}` : 'none',
-          transition: transitions.normal,
+          background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
+          borderBottom: scrolled ? `1px solid ${colors.charcoal[100]}` : '1px solid transparent',
+          transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div
           style={{
@@ -112,7 +119,7 @@ export default function Navigation() {
             maxWidth: layout.maxWidth,
             margin: '0 auto',
             padding: `${scrolled ? spacing[3] : spacing[5]} ${layout.gutter}`,
-            transition: transitions.normal,
+            transition: 'padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
           }}
         >
           {/* Logo */}
@@ -123,7 +130,8 @@ export default function Navigation() {
               style={{
                 height: scrolled ? '28px' : '34px',
                 width: 'auto',
-                transition: transitions.normal,
+                transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                filter: logoFilter,
               }}
             />
           </a>
@@ -153,10 +161,10 @@ export default function Navigation() {
                     fontFamily: typography.fontFamily.body,
                     fontSize: typography.fontSize['body-sm'],
                     fontWeight: typography.fontWeight.medium,
-                    color: activeMenu === key ? colors.orange.DEFAULT : colors.charcoal.DEFAULT,
+                    color: activeMenu === key ? colors.orange.DEFAULT : textColor,
                     letterSpacing: typography.letterSpacing.wide,
                     textTransform: 'uppercase',
-                    transition: transitions.fast,
+                    transition: 'color 0.3s',
                   }}
                 >
                   {section.title}
@@ -174,9 +182,10 @@ export default function Navigation() {
                 fontFamily: typography.fontFamily.body,
                 fontSize: typography.fontSize['body-sm'],
                 fontWeight: typography.fontWeight.semibold,
-                color: colors.charcoal.DEFAULT,
+                color: textColor,
                 textDecoration: 'none',
                 letterSpacing: typography.letterSpacing.wide,
+                transition: 'color 0.3s',
               }}
             >
               1300 207 915
@@ -221,15 +230,15 @@ export default function Navigation() {
               aria-label="Toggle menu"
             >
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: colors.charcoal.DEFAULT }}
+                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
                 animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
               />
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: colors.charcoal.DEFAULT }}
+                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
                 animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
               />
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: colors.charcoal.DEFAULT }}
+                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
                 animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
               />
             </button>
@@ -410,7 +419,7 @@ export default function Navigation() {
               position: 'fixed',
               inset: 0,
               zIndex: 999,
-              background: colors.white,
+              background: colors.charcoal.dark,
               paddingTop: '80px',
               overflowY: 'auto',
             }}
@@ -419,9 +428,9 @@ export default function Navigation() {
               {Object.entries(menuData).map(([key, section], sectionIdx) => (
                 <motion.div
                   key={key}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: sectionIdx * 0.1 }}
+                  transition={{ delay: sectionIdx * 0.1, duration: 0.5 }}
                   style={{ marginBottom: spacing[8] }}
                 >
                   <p
@@ -449,9 +458,9 @@ export default function Navigation() {
                         fontFamily: typography.fontFamily.headline,
                         fontSize: typography.fontSize['heading-sm'],
                         fontWeight: typography.fontWeight.bold,
-                        color: colors.charcoal.DEFAULT,
+                        color: colors.white,
                         textDecoration: 'none',
-                        borderBottom: `1px solid ${colors.charcoal[100]}`,
+                        borderBottom: `1px solid ${colors.charcoal[700]}`,
                       }}
                     >
                       {item.label}
@@ -512,7 +521,7 @@ export default function Navigation() {
         }
       ` }} />
 
-      {/* Orange transition bar */}
+      {/* Scroll progress bar */}
       <motion.div
         style={{
           position: 'fixed',
@@ -520,14 +529,12 @@ export default function Navigation() {
           left: 0,
           right: 0,
           height: '3px',
-          background: colors.orange.DEFAULT,
+          background: `linear-gradient(90deg, ${colors.orange.DEFAULT}, ${colors.cream.DEFAULT})`,
           transformOrigin: '0%',
           zIndex: 1001,
+          scaleX: progressScaleX,
         }}
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 0 }}
       />
     </>
   );
 }
-

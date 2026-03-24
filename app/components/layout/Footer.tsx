@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { colors, typography, spacing, layout, borderRadius } from '@/app/lib/tokens';
+import BrandIllustration from '@/app/components/ui/BrandIllustration';
 
 const footerLinks = {
   services: {
@@ -47,18 +48,39 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
+      className="noise-overlay"
       style={{
-        background: colors.charcoal.DEFAULT,
+        background: colors.charcoal.dark,
         color: colors.white,
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+      {/* Background illustrations — more visible */}
+      <BrandIllustration
+        type="scribble"
+        color="grey"
+        size={500}
+        position={{ bottom: '-80px', right: '-80px' }}
+        animation="float"
+        opacity={0.06}
+      />
+      <BrandIllustration
+        type="patch"
+        color="orange"
+        size={200}
+        position={{ top: '20%', right: '15%' }}
+        animation="parallax"
+        opacity={0.04}
+      />
+
       {/* Featured content banner — magazine style */}
       <div
         style={{
-          borderBottom: `1px solid ${colors.charcoal[600]}`,
+          borderBottom: `1px solid ${colors.charcoal[700]}`,
           padding: `${spacing[10]} 0`,
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         <div
@@ -79,11 +101,13 @@ export default function Footer() {
               alignItems: 'center',
               gap: spacing[4],
               padding: spacing[4],
-              borderRadius: borderRadius.md,
+              borderRadius: borderRadius.lg,
               textDecoration: 'none',
               color: colors.white,
+              border: '1px solid transparent',
+              transition: 'all 0.3s',
             }}
-            whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+            whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: `${colors.charcoal[600]}` }}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{ delay: 0.1 }}
@@ -92,16 +116,19 @@ export default function Footer() {
               style={{
                 width: '60px',
                 height: '60px',
-                borderRadius: borderRadius.md,
-                background: colors.orange.DEFAULT,
+                borderRadius: borderRadius.lg,
+                background: `linear-gradient(135deg, ${colors.orange.DEFAULT}, ${colors.orange.dark})`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
-                fontSize: '24px',
               }}
             >
-              🎙
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" y1="19" x2="12" y2="23" />
+              </svg>
             </div>
             <div>
               <span
@@ -138,11 +165,13 @@ export default function Footer() {
               alignItems: 'center',
               gap: spacing[4],
               padding: spacing[4],
-              borderRadius: borderRadius.md,
+              borderRadius: borderRadius.lg,
               textDecoration: 'none',
               color: colors.white,
+              border: '1px solid transparent',
+              transition: 'all 0.3s',
             }}
-            whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+            whileHover={{ backgroundColor: 'rgba(255,255,255,0.04)', borderColor: `${colors.charcoal[600]}` }}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{ delay: 0.2 }}
@@ -151,7 +180,7 @@ export default function Footer() {
               style={{
                 width: '60px',
                 height: '60px',
-                borderRadius: borderRadius.md,
+                borderRadius: borderRadius.lg,
                 overflow: 'hidden',
                 flexShrink: 0,
               }}
@@ -190,13 +219,21 @@ export default function Footer() {
           </motion.a>
 
           {/* CTA */}
-          <motion.div
+          <motion.a
+            href="/contact"
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: spacing[4],
               padding: spacing[4],
+              borderRadius: borderRadius.lg,
+              textDecoration: 'none',
+              color: colors.white,
+              background: `linear-gradient(135deg, ${colors.orange.DEFAULT}22, transparent)`,
+              border: `1px solid ${colors.orange.DEFAULT}33`,
+              transition: 'all 0.3s',
             }}
+            whileHover={{ borderColor: colors.orange.DEFAULT }}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{ delay: 0.3 }}
@@ -211,7 +248,14 @@ export default function Footer() {
             >
               Ready to transform your floors?
             </span>
-          </motion.div>
+            <motion.span
+              animate={{ x: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              style={{ color: colors.orange.DEFAULT, fontSize: '20px' }}
+            >
+              →
+            </motion.span>
+          </motion.a>
         </div>
       </div>
 
@@ -220,7 +264,9 @@ export default function Footer() {
         style={{
           maxWidth: layout.contentWidth,
           margin: '0 auto',
-          padding: `${spacing[12]} ${layout.gutter}`,
+          padding: `${spacing[16]} ${layout.gutter}`,
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         <div
@@ -236,16 +282,16 @@ export default function Footer() {
             <img
               src="/images/Premrest_Main_Charcoal.svg"
               alt="Premrest"
-              style={{ height: '36px', width: 'auto', filter: 'brightness(10)', marginBottom: spacing[4] }}
+              style={{ height: '36px', width: 'auto', filter: 'brightness(10)', marginBottom: spacing[5] }}
             />
             <p
               style={{
                 fontFamily: typography.fontFamily.body,
                 fontSize: typography.fontSize['body-sm'],
-                color: colors.charcoal[300],
+                color: colors.charcoal[400],
                 lineHeight: typography.lineHeight.relaxed,
                 maxWidth: '280px',
-                margin: `0 0 ${spacing[5]}`,
+                margin: `0 0 ${spacing[6]}`,
               }}
             >
               Australia&apos;s go-to for commercial floor care — cleaning, installing, and maintaining floors from small spaces to multi-level projects.
@@ -266,11 +312,13 @@ export default function Footer() {
             </a>
             <a
               href="mailto:hello@premrest.com.au"
+              className="hover-underline"
               style={{
                 fontFamily: typography.fontFamily.body,
                 fontSize: typography.fontSize['body-sm'],
-                color: colors.charcoal[300],
+                color: colors.charcoal[400],
                 textDecoration: 'none',
+                display: 'inline-block',
               }}
             >
               hello@premrest.com.au
@@ -287,7 +335,7 @@ export default function Footer() {
                   fontWeight: typography.fontWeight.semibold,
                   letterSpacing: typography.letterSpacing.widest,
                   textTransform: 'uppercase',
-                  color: colors.charcoal[400],
+                  color: colors.charcoal[500],
                   marginBottom: spacing[4],
                   marginTop: 0,
                 }}
@@ -299,15 +347,18 @@ export default function Footer() {
                   <a
                     key={link.href}
                     href={link.href}
+                    className="hover-underline"
                     style={{
                       fontFamily: typography.fontFamily.body,
                       fontSize: typography.fontSize['body-sm'],
-                      color: colors.charcoal[300],
+                      color: colors.charcoal[400],
                       textDecoration: 'none',
-                      transition: 'color 0.2s',
+                      transition: 'color 0.3s',
+                      display: 'inline-block',
+                      width: 'fit-content',
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = colors.white)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = colors.charcoal[300])}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = colors.charcoal[400])}
                   >
                     {link.label}
                   </a>
@@ -321,8 +372,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div
         style={{
-          borderTop: `1px solid ${colors.charcoal[600]}`,
+          borderTop: `1px solid ${colors.charcoal[700]}`,
           padding: `${spacing[5]} 0`,
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         <div
@@ -348,8 +401,9 @@ export default function Footer() {
           </p>
           <p
             style={{
-              fontFamily: typography.fontFamily.body,
+              fontFamily: typography.fontFamily.accent,
               fontSize: typography.fontSize.caption,
+              fontStyle: 'italic',
               color: colors.charcoal[500],
               margin: 0,
             }}
@@ -358,21 +412,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
-      {/* Background illustration */}
-      <img
-        src="/images/Premrest_Scribbles_grey.svg"
-        alt=""
-        role="presentation"
-        style={{
-          position: 'absolute',
-          bottom: '-50px',
-          right: '-50px',
-          width: '400px',
-          opacity: 0.03,
-          pointerEvents: 'none',
-        }}
-      />
 
       {/* Responsive styles */}
       <style dangerouslySetInnerHTML={{ __html: `
