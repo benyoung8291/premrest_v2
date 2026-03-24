@@ -1,126 +1,216 @@
 import type { Metadata } from 'next';
+import RedesignLayout from '@/app/redesign-layout';
+import { colors, typography, spacing, layout, borderRadius } from '@/app/lib/tokens';
 
 export const metadata: Metadata = {
-  title: 'Sustainability Impact Report',
-  description: '',
+  title: 'Sustainability Impact Report | Premrest',
 };
 
 export default function Page() {
+  const sectionStyle = {
+    marginBottom: spacing[12],
+  };
+
+  const h2Style = {
+    fontFamily: typography.fontFamily.headline,
+    fontSize: typography.fontSize['display-md'],
+    fontWeight: typography.fontWeight.heavy,
+    color: colors.charcoal.DEFAULT,
+    marginBottom: spacing[8],
+  };
+
+  const h3Style = {
+    fontFamily: typography.fontFamily.headline,
+    fontSize: typography.fontSize['heading-lg'],
+    fontWeight: typography.fontWeight.bold,
+    color: colors.charcoal.DEFAULT,
+    marginBottom: spacing[4],
+  };
+
+  const pStyle = {
+    fontFamily: typography.fontFamily.body,
+    fontSize: typography.fontSize['body-md'],
+    color: colors.charcoal[500],
+    lineHeight: typography.lineHeight.relaxed,
+    marginBottom: spacing[6],
+  };
+
+  const listStyle = {
+    fontFamily: typography.fontFamily.body,
+    fontSize: typography.fontSize['body-md'],
+    color: colors.charcoal[500],
+    lineHeight: typography.lineHeight.relaxed,
+    paddingLeft: spacing[6],
+    marginBottom: spacing[6],
+  };
+
+  const liStyle = {
+    marginBottom: spacing[2],
+  };
+
   return (
-    <>
-      {/* Page-specific styles */}
-      
-      {/* Webflow page content - exact export */}
-      <div dangerouslySetInnerHTML={{ __html: `
-  <div class="page-wrapper">
-    <main class="main-wrapper">
-      <div class="padding-global padding-section-small">
-        <div class="container-large">
-          <div class="impact-logo-container"><img src="/images/Premrest_Main_Charcoal.svg" loading="lazy" alt="" class="impact-logo"></div>
-          <div class="grid_wrapper">
-            <div class="grid-1-column">
-              <h2>Impact Report</h2>
-              <h5>Overview</h5>
-              <p>Keeping your facility clean while also balancing the rigour of meeting sustainability goals can be challenging. Steam cleaning has long been the go-to cleaning method, but it comes with significant drawbacks. Excessive water usage, high energy consumption, and lots of waste water mean that it&#x27;s not the most environmentally friendly option. Bulky machinery, noisy operations, and long drying times also doesn&#x27;t make it the most practical choice for facility managers who need their buildings to keep ticking.<br><br>Low moisture encapsulation is the greener alternative that uses significantly less water, energy, chemicals and waste water while delivering a deeper, more thorough clean. This method not only enhances sustainability but also improves efficiency, reduces downtime, and is focused on proactive maintenance over a &#x27;clean-when-needed&#x27; approach - keeping your floors spotless all year round.</p>
-              <h5>Environmental and operational impact</h5>
-              <p>Steam cleaning leaves a significant mark on the environment. High water usage strains resources, and the energy required to heat large volumes of it contributes to high operational expenses. The wastewater left behind can also contain chemicals that need careful disposal to meet environmental standards.<br><br>Think of steam cleaning like a pressure wash for your carpets. Low moisture encapsulation is a light spray of an environmentally-friendly cleaning solution that works through agitation, crystallising dirt and grime into nano-sized &#x27;caps&#x27; that is easily removed through regular vacuuming.</p>
+    <RedesignLayout>
+      <section style={{
+        background: colors.offWhite,
+        padding: `${spacing[32]} ${layout.gutter}`,
+      }}>
+        <div style={{ maxWidth: layout.narrowWidth, margin: '0 auto' }}>
+          {/* Logo */}
+          <div style={{ textAlign: 'center', marginBottom: spacing[12] }}>
+            <img
+              src="/images/Premrest_Main_Charcoal.svg"
+              alt="Premrest"
+              style={{ maxWidth: '200px', margin: '0 auto' }}
+            />
+          </div>
+
+          {/* Title */}
+          <h1 style={{
+            fontFamily: typography.fontFamily.headline,
+            fontSize: typography.fontSize['display-lg'],
+            fontWeight: typography.fontWeight.heavy,
+            color: colors.charcoal.DEFAULT,
+            marginBottom: spacing[12],
+            textAlign: 'center',
+          }}>
+            Impact Report
+          </h1>
+
+          {/* Overview */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Overview</h2>
+            <p style={pStyle}>
+              Keeping your facility clean while also balancing the rigour of meeting sustainability goals can be challenging. Steam cleaning has long been the go-to cleaning method, but it comes with significant drawbacks. Excessive water usage, high energy consumption, and lots of waste water mean that it&apos;s not the most environmentally friendly option. Bulky machinery, noisy operations, and long drying times also doesn&apos;t make it the most practical choice for facility managers who need their buildings to keep ticking.
+            </p>
+            <p style={pStyle}>
+              Low moisture encapsulation is the greener alternative that uses significantly less water, energy, chemicals and waste water while delivering a deeper, more thorough clean. This method not only enhances sustainability but also improves efficiency, reduces downtime, and is focused on proactive maintenance over a &apos;clean-when-needed&apos; approach - keeping your floors spotless all year round.
+            </p>
+          </div>
+
+          {/* Environmental and operational impact */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Environmental and operational impact</h2>
+            <p style={pStyle}>
+              Steam cleaning leaves a significant mark on the environment. High water usage strains resources, and the energy required to heat large volumes of it contributes to high operational expenses. The wastewater left behind can also contain chemicals that need careful disposal to meet environmental standards.
+            </p>
+            <p style={pStyle}>
+              Think of steam cleaning like a pressure wash for your carpets. Low moisture encapsulation is a light spray of an environmentally-friendly cleaning solution that works through agitation, crystallising dirt and grime into nano-sized &apos;caps&apos; that is easily removed through regular vacuuming.
+            </p>
+          </div>
+
+          {/* Waste management hierarchy */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Waste management hierarchy</h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: spacing[8],
+              alignItems: 'start',
+            }}>
+              <div>
+                <p style={pStyle}>
+                  Sustainability isn&apos;t just about cleaning methods - it&apos;s about how we handle waste too. At Premrest, we follow a simple but effective waste management hierarchy that helps facilities reduce their environmental footprint while keeping things running smoothly:
+                </p>
+                <ol style={listStyle}>
+                  <li style={liStyle}><strong>Reduce:</strong> Cutting down on water waste by using cleaning methods that need considerably less water, energy, and chemicals.</li>
+                  <li style={liStyle}><strong>Reuse:</strong> Maximising resources by maintaining and revitalising carpets for as long as 15 years, rather than replacing them too soon.</li>
+                  <li style={liStyle}><strong>Recycle:</strong> Giving materials a second life by reprocessing them into new products instead of sending them to landfill.</li>
+                  <li style={liStyle}><strong>Disposal:</strong> The absolute last resort - handling water waste responsibly when there&apos;s no other option.</li>
+                </ol>
+                <p style={pStyle}>
+                  By reducing water and energy use, extending the life of flooring, and cutting down harsh chemical use, low moisture encapsulation moves away from disposal and towards reuse and reduce. Instead of treating waste as an afterthought, we embed sustainability into every step of the cleaning process.
+                </p>
+              </div>
+              <div>
+                <img
+                  src="/images/Colorful-Pyramid-Chart-Instagram-Post.webp"
+                  alt="Waste management hierarchy pyramid"
+                  style={{ width: '100%', borderRadius: borderRadius.lg }}
+                />
+              </div>
             </div>
           </div>
-          <div class="grid_wrapper grid-space">
-            <div class="grid-1-column">
-              <h5>Waste management hierarchy</h5>
-              <div class="grid-column-waste">
-                <div id="w-node-bafecc81-7279-b412-8287-e060ca88e9a9-fa79b6e8" class="grid-text">
-                  <div class="w-richtext">
-                    <p>Sustainability isn’t just about cleaning methods - it’s about how we handle waste too. At Premrest, we follow a simple but effective waste management hierarchy that helps facilities reduce their environmental footprint while keeping things running smoothly:</p>
-                    <p>‍</p>
-                    <ol role="list">
-                      <li><strong>Reduce:</strong> Cutting down on water waste by using cleaning methods that need considerably less water, energy, and chemicals.</li>
-                      <li><strong>Reuse:</strong> Maximising resources by maintaining and revitalising carpets for as long as 15 years, rather than replacing them too soon.</li>
-                      <li><strong>Recycle:</strong> Giving materials a second life by reprocessing them into new products instead of sending them to landfill.</li>
-                      <li><strong>Disposal:</strong> The absolute last resort - handling water waste responsibly when there’s no other option.</li>
-                    </ol>
-                    <p>‍</p>
-                    <p>By reducing water and energy use, extending the life of flooring, and cutting down harsh chemical use, low moisture encapsulation moves away from disposal and towards reuse and reduce. Instead of treating waste as an afterthought, we embed sustainability into every step of the cleaning process.</p>
-                  </div>
-                </div>
-                <div id="w-node-bbfda998-30ea-cd7e-f494-f4fdf2b4c8aa-fa79b6e8" class="grid-image"><img src="/images/Colorful-Pyramid-Chart-Instagram-Post.webp" loading="lazy" sizes="(max-width: 1890px) 100vw, 1890px" srcset="/images/Colorful-Pyramid-Chart-Instagram-Post-p-500.webp 500w, /images/Colorful-Pyramid-Chart-Instagram-Post-p-800.webp 800w, /images/Colorful-Pyramid-Chart-Instagram-Post-p-1080.webp 1080w, /images/Colorful-Pyramid-Chart-Instagram-Post-p-1600.webp 1600w, /images/Colorful-Pyramid-Chart-Instagram-Post.webp 1890w" alt="" class="waste-management-image"></div>
-              </div>
+
+          {/* Results */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Results</h2>
+            <p style={pStyle}>
+              Your facility is 60,000m2 and your frequency of steam cleans is bi-annual. By making the switch to low moisture encapsulation, here&apos;s the reductions you can expect:
+            </p>
+            <div style={{ overflowX: 'auto' as const, marginBottom: spacing[6] }}>
+              <table style={{
+                width: '100%',
+                borderCollapse: 'collapse' as const,
+                fontFamily: typography.fontFamily.body,
+                fontSize: typography.fontSize['body-sm'],
+              }}>
+                <thead>
+                  <tr style={{ background: colors.charcoal.DEFAULT, color: colors.white }}>
+                    <th style={{ padding: spacing[3], textAlign: 'left' as const }}>&nbsp;</th>
+                    <th style={{ padding: spacing[3], textAlign: 'center' as const }}>Steam Cleaning</th>
+                    <th style={{ padding: spacing[3], textAlign: 'center' as const }}>Low Moisture</th>
+                    <th style={{ padding: spacing[3], textAlign: 'center' as const }}>Savings</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: `1px solid ${colors.charcoal[200]}` }}>
+                    <td style={{ padding: spacing[3], fontWeight: typography.fontWeight.semibold }}>Water Usage (L/year)</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>30,914</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>7,390</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const, color: colors.orange.DEFAULT, fontWeight: typography.fontWeight.semibold }}>-76% (23,524L)</td>
+                  </tr>
+                  <tr style={{ borderBottom: `1px solid ${colors.charcoal[200]}` }}>
+                    <td style={{ padding: spacing[3], fontWeight: typography.fontWeight.semibold }}>Wastewater (L/year)</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>18,536</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>62</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const, color: colors.orange.DEFAULT, fontWeight: typography.fontWeight.semibold }}>-100% (18,475L)</td>
+                  </tr>
+                  <tr style={{ borderBottom: `1px solid ${colors.charcoal[200]}` }}>
+                    <td style={{ padding: spacing[3], fontWeight: typography.fontWeight.semibold }}>Energy Usage (kWh)</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>5,124</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const }}>985</td>
+                    <td style={{ padding: spacing[3], textAlign: 'center' as const, color: colors.orange.DEFAULT, fontWeight: typography.fontWeight.semibold }}>-81% (4,138 kWh)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
+            <p style={{ ...pStyle, fontWeight: typography.fontWeight.bold }}>Your savings in perspective:</p>
+            <ul style={listStyle}>
+              <li style={liStyle}>A month&apos;s drinking water supply for 130 households.</li>
+              <li style={liStyle}>Enough to flush your toilets 3,079 times</li>
+              <li style={liStyle}>Power a Tesla for 24,828kms</li>
+            </ul>
           </div>
-          <div class="grid_wrapper grid-space">
-            <div class="grid-1-column">
-              <h5>Results</h5>
-              <p>Your facility is 60,000m2 and your frequency of steam cleans is bi-annual. By making the switch to low moisture encapsulation, here&#x27;s the reductions you can expect:</p>
-              <div class="w-embed">
-                <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: center;">
-                  <tr>
-                    <th style="width: 25%;"> </th>
-                    <th style="width: 25%;">Steam Cleaning</th>
-                    <th style="width: 25%;">Low Moisture</th>
-                    <th style="width: 25%;">Savings</th>
-                  </tr>
-                  <tr>
-                    <td>Water Usage (L/year)</td>
-                    <td>30,914</td>
-                    <td>7,390</td>
-                    <td>-76% (23,524L)</td>
-                  </tr>
-                  <tr>
-                    <td>Wastewater (L/year)</td>
-                    <td>18,536</td>
-                    <td>62</td>
-                    <td>-100% (18,475L)</td>
-                  </tr>
-                  <tr>
-                    <td>Energy Usage (kWh)</td>
-                    <td>5,124</td>
-                    <td>985</td>
-                    <td>-81% (4,138 kWh)</td>
-                  </tr>
-                </table>
-              </div>
-              <div class="w-richtext">
-                <p><strong>Your savings in perspective:</strong></p>
-                <ul role="list">
-                  <li>A month&#x27;s drinking water supply for 130 households.</li>
-                  <li>Enough to flush your toilets 3,079 times</li>
-                  <li>Power a Tesla for 24,828kms</li>
-                </ul>
-              </div>
-              <h5>Why facility managers are making the switch</h5>
-              <div class="w-richtext">
-                <ul role="list">
-                  <li><strong>Minimal downtime:</strong> Drying time of 45-90 minutes.</li>
-                  <li><strong>Sustainable:</strong> Uses significantly less water, energy, chemicals and waste water.</li>
-                  <li><strong>Non-intrusive:</strong> Lightweight machinery that’s quieter than a vacuum.</li>
-                  <li><strong>Longevity:</strong> Extends carpet lifespan with protective polymers.</li>
-                  <li><strong>Deep cleaning:</strong> Breaks down 96% of dirt and grime on a molecular level.</li>
-                  <li><strong>Long-lasting:</strong> Floors repel dirt and stay cleaner for longer through active film technology.</li>
-                </ul>
-                <p>‍</p>
-              </div>
-              <p>Steam cleaning leaves a significant mark on the environment. High water usage strains resources, and the energy required to heat large volumes of it contributes to high operational expenses. The wastewater left behind can also contain chemicals that need careful disposal to meet environmental standards.<br><br>Think of steam cleaning like a pressure wash for your carpets. Low moisture encapsulation is a light spray of an environmentally-friendly cleaning solution that works through agitation, crystallising dirt and grime into nano-sized &#x27;caps&#x27; that is easily removed through regular vacuuming.</p>
-              <h5>Financial &amp; compliance benefits</h5>
-              <div class="w-richtext">
-                <p>Choosing low moisture encapsulation isn&#x27;t just a more environmentally responsible choice - it’s also a strategic, cost-effective financial decision:</p>
-                <p>‍</p>
-                <ul role="list">
-                  <li><strong>Lower utility costs:</strong> Reduced water and energy expenditure.</li>
-                  <li><strong>Extended flooring lifespan:</strong> Maintain the lifespan of your flooring and prevent costly replacements or repairs.</li>
-                  <li><strong>Meets sustainability &amp; compliance benchmarks:</strong> Align your facility with wider corporate ESG goals, and rating systems or accreditations such as Green Star.</li>
-                  <li><strong>Lower flooring maintenance costs:</strong> Most cleaning contracts exclude floor maintenance or charge separately for it. Even when included, results are often inconsistent, leading to frequent rework and higher long-term costs.</li>
-                </ul>
-              </div>
-            </div>
+
+          {/* Why facility managers are making the switch */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Why facility managers are making the switch</h2>
+            <ul style={listStyle}>
+              <li style={liStyle}><strong>Minimal downtime:</strong> Drying time of 45-90 minutes.</li>
+              <li style={liStyle}><strong>Sustainable:</strong> Uses significantly less water, energy, chemicals and waste water.</li>
+              <li style={liStyle}><strong>Non-intrusive:</strong> Lightweight machinery that&apos;s quieter than a vacuum.</li>
+              <li style={liStyle}><strong>Longevity:</strong> Extends carpet lifespan with protective polymers.</li>
+              <li style={liStyle}><strong>Deep cleaning:</strong> Breaks down 96% of dirt and grime on a molecular level.</li>
+              <li style={liStyle}><strong>Long-lasting:</strong> Floors repel dirt and stay cleaner for longer through active film technology.</li>
+            </ul>
+          </div>
+
+          {/* Financial & compliance benefits */}
+          <div style={sectionStyle}>
+            <h2 style={h3Style}>Financial &amp; compliance benefits</h2>
+            <p style={pStyle}>
+              Choosing low moisture encapsulation isn&apos;t just a more environmentally responsible choice - it&apos;s also a strategic, cost-effective financial decision:
+            </p>
+            <ul style={listStyle}>
+              <li style={liStyle}><strong>Lower utility costs:</strong> Reduced water and energy expenditure.</li>
+              <li style={liStyle}><strong>Extended flooring lifespan:</strong> Maintain the lifespan of your flooring and prevent costly replacements or repairs.</li>
+              <li style={liStyle}><strong>Meets sustainability &amp; compliance benchmarks:</strong> Align your facility with wider corporate ESG goals, and rating systems or accreditations such as Green Star.</li>
+              <li style={liStyle}><strong>Lower flooring maintenance costs:</strong> Most cleaning contracts exclude floor maintenance or charge separately for it. Even when included, results are often inconsistent, leading to frequent rework and higher long-term costs.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=675661387278edf4cf92de17" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="/js/webflow.js" type="text/javascript"></script>
-` }} />
-    </>
+      </section>
+    </RedesignLayout>
   );
 }

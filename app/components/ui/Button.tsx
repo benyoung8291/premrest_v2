@@ -12,6 +12,7 @@ interface ButtonProps {
   className?: string;
   type?: 'button' | 'submit';
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const variants = {
@@ -57,6 +58,7 @@ export default function Button({
   className = '',
   type = 'button',
   fullWidth = false,
+  disabled = false,
 }: ButtonProps) {
   const v = variants[variant];
   const s = sizes[size];
@@ -76,11 +78,13 @@ export default function Button({
     color: v.color,
     border: v.border,
     borderRadius: borderRadius.full,
-    cursor: 'pointer',
+    cursor: disabled ? 'not-allowed' : 'pointer',
     textDecoration: 'none',
     transition: transitions.normal,
     width: fullWidth ? '100%' : 'auto',
     lineHeight: 1,
+    opacity: disabled ? 0.5 : 1,
+    pointerEvents: disabled ? 'none' as const : 'auto' as const,
   };
 
   const Component = href ? motion.a : motion.button;
