@@ -1,8 +1,6 @@
-import 'dotenv/config';
 import bcrypt from 'bcryptjs';
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
 
 interface WebflowItem {
   id: string;
@@ -17,14 +15,10 @@ function readJson(filename: string): WebflowItem[] {
 }
 
 async function main() {
-  // Dynamic imports for ESM modules
   const { PrismaClient } = await import('../generated/prisma/client.js');
-  const { PrismaLibSql } = await import('@prisma/adapter-libsql');
-  const { createClient } = await import('@libsql/client');
+  const { PrismaBetterSqlite3 } = await import('@prisma/adapter-better-sqlite3');
 
-  const dbPath = path.join(process.cwd(), 'prisma', 'dev.db');
-  const libsql = createClient({ url: `file:${dbPath}` });
-  const adapter = new PrismaLibSql(libsql);
+  const adapter = new PrismaBetterSqlite3({ url: 'file:dev.db' });
   const prisma = new PrismaClient({ adapter }) as any;
 
   console.log('Seeding database...');
