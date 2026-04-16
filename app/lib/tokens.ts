@@ -1,69 +1,83 @@
 // =============================================================================
 // PREMREST DESIGN SYSTEM — TOKENS
-// Bold. Expert. Modern.
+// Clean. Natural. Minimal. (Allbirds-inspired)
 // =============================================================================
 
 export const colors = {
-  // Primary brand palette
+  // Primary brand — dark neutral (was orange, now used as subtle accent only)
   orange: {
-    DEFAULT: '#d1703c',
-    light: '#e8956a',
-    dark: '#b5582a',
-    50: '#fef3ec',
-    100: '#fde3d0',
-    200: '#f9c5a0',
-    300: '#f4a06b',
-    400: '#e8856a',
-    500: '#d1703c',
-    600: '#b5582a',
-    700: '#954420',
-    800: '#763518',
-    900: '#5a2812',
+    DEFAULT: '#212a2f',
+    light: '#3a4a52',
+    dark: '#141b1f',
+    50: '#f2f4f5',
+    100: '#e0e4e6',
+    200: '#c1c9cd',
+    300: '#95a3aa',
+    400: '#6b7d85',
+    500: '#4a5d66',
+    600: '#3a4a52',
+    700: '#2d3a41',
+    800: '#212a2f',
+    900: '#141b1f',
   },
 
+  // Text / heading color (was charcoal)
   charcoal: {
-    DEFAULT: '#2e3133',
-    light: '#4a4e51',
-    dark: '#1a1c1e',
-    50: '#f4f5f5',
-    100: '#e4e5e6',
-    200: '#c9cbcc',
-    300: '#a3a7a9',
-    400: '#7d8285',
-    500: '#5c6164',
-    600: '#4a4e51',
-    700: '#3c4042',
-    800: '#2e3133',
-    900: '#1a1c1e',
+    DEFAULT: '#212a2f',
+    light: '#4a5260',
+    dark: '#141b1f',
+    50: '#f5f5f4',
+    100: '#e8e8e6',
+    200: '#d5d5d0',
+    300: '#b0b0a8',
+    400: '#8a8a82',
+    500: '#6d6d66',
+    600: '#55554f',
+    700: '#3d3d38',
+    800: '#2a2a26',
+    900: '#1a1a17',
   },
 
+  // Warm background tones (was cream)
   cream: {
-    DEFAULT: '#f9cb8f',
-    light: '#fce4c4',
-    dark: '#f0a94d',
-    50: '#fef9f0',
-    100: '#fdf2e0',
-    200: '#fce4c4',
-    300: '#fad5a5',
-    400: '#f9cb8f',
-    500: '#f0a94d',
-    600: '#e89230',
-    700: '#c77720',
-    800: '#a05e18',
-    900: '#794712',
+    DEFAULT: '#F5F5F0',
+    light: '#FAFAF7',
+    dark: '#E8E8E3',
+    50: '#FDFDFB',
+    100: '#FAFAF7',
+    200: '#F5F5F0',
+    300: '#EDEDEA',
+    400: '#E8E8E3',
+    500: '#D5D5D0',
+    600: '#C0C0BB',
+    700: '#A0A09B',
+    800: '#808078',
+    900: '#60605A',
   },
 
   // Neutral tones
   white: '#ffffff',
-  offWhite: '#faf8f5',
-  warmGray: '#f2ede8',
+  offWhite: '#F5F5F0',
+  warmGray: '#E8E8E3',
   black: '#111111',
 
-  // Accent (sustainability green — secondary)
+  // Natural earthy accent tones
+  natural: {
+    sand: '#D4C5A9',
+    stone: '#9B958A',
+    fog: '#F0EEEB',
+    sage: '#c4d3c2',
+    bark: '#6B5B4E',
+  },
+
+  // Brand accent (original orange — used sparingly for highlights)
+  brandAccent: '#d1703c',
+
+  // Sustainability green
   green: {
-    DEFAULT: '#4a7c59',
-    light: '#6b9e7a',
-    dark: '#365a40',
+    DEFAULT: '#3C6E47',
+    light: '#5a9466',
+    dark: '#2a5033',
   },
 
   // UI states
@@ -73,30 +87,28 @@ export const colors = {
 } as const;
 
 export const typography = {
-  // Font families — simplified to 3
   fontFamily: {
-    headline: '"futura-pt", "Futura PT", sans-serif',
-    body: '"Inter", sans-serif',
-    accent: '"Krub", sans-serif',
+    headline: 'Georgia, "Times New Roman", serif',
+    body: '"Inter", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    accent: '"Inter", "Helvetica Neue", Helvetica, Arial, sans-serif',
   },
 
-  // Font sizes — dramatic scale for editorial feel
   fontSize: {
-    // Display sizes (hero headlines)
-    'display-xl': 'clamp(3.5rem, 8vw, 7rem)',
-    'display-lg': 'clamp(3rem, 6vw, 5.5rem)',
-    'display-md': 'clamp(2.5rem, 5vw, 4.5rem)',
+    // Display sizes — restrained for clean aesthetic
+    'display-xl': 'clamp(2.5rem, 5vw, 4rem)',
+    'display-lg': 'clamp(2.25rem, 4vw, 3.25rem)',
+    'display-md': 'clamp(2rem, 3.5vw, 2.75rem)',
 
     // Heading sizes
-    'heading-xl': 'clamp(2rem, 4vw, 3.5rem)',
-    'heading-lg': 'clamp(1.75rem, 3vw, 2.75rem)',
-    'heading-md': 'clamp(1.5rem, 2.5vw, 2rem)',
-    'heading-sm': 'clamp(1.25rem, 2vw, 1.5rem)',
+    'heading-xl': 'clamp(1.75rem, 3vw, 2.5rem)',
+    'heading-lg': 'clamp(1.5rem, 2.5vw, 2rem)',
+    'heading-md': 'clamp(1.25rem, 2vw, 1.625rem)',
+    'heading-sm': 'clamp(1.125rem, 1.5vw, 1.25rem)',
 
     // Body sizes
-    'body-lg': '1.25rem',
-    'body-md': '1.0625rem',
-    'body-sm': '0.9375rem',
+    'body-lg': '1.125rem',
+    'body-md': '1rem',
+    'body-sm': '0.875rem',
     'body-xs': '0.8125rem',
 
     // UI sizes
@@ -110,22 +122,22 @@ export const typography = {
     medium: 500,
     semibold: 600,
     bold: 700,
-    heavy: 900,
+    heavy: 700,
   },
 
   lineHeight: {
-    tight: 1.05,
-    snug: 1.2,
-    normal: 1.5,
-    relaxed: 1.7,
+    tight: 1.15,
+    snug: 1.3,
+    normal: 1.6,
+    relaxed: 1.8,
   },
 
   letterSpacing: {
-    tight: '-0.03em',
+    tight: '-0.02em',
     normal: '0',
-    wide: '0.05em',
-    wider: '0.1em',
-    widest: '0.2em',
+    wide: '0.02em',
+    wider: '0.05em',
+    widest: '0.1em',
   },
 } as const;
 
@@ -167,26 +179,26 @@ export const layout = {
 } as const;
 
 export const transitions = {
-  fast: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
-  normal: '300ms cubic-bezier(0.4, 0, 0.2, 1)',
-  slow: '500ms cubic-bezier(0.4, 0, 0.2, 1)',
-  spring: { type: 'spring', stiffness: 300, damping: 30 },
-  springGentle: { type: 'spring', stiffness: 200, damping: 25 },
-  springBouncy: { type: 'spring', stiffness: 400, damping: 20 },
+  fast: '150ms ease',
+  normal: '250ms ease',
+  slow: '400ms ease',
+  spring: { type: 'spring' as const, stiffness: 260, damping: 30 },
+  springGentle: { type: 'spring' as const, stiffness: 200, damping: 28 },
+  springBouncy: { type: 'spring' as const, stiffness: 300, damping: 22 },
 } as const;
 
 export const shadows = {
-  sm: '0 1px 3px rgba(0,0,0,0.08)',
-  md: '0 4px 12px rgba(0,0,0,0.1)',
-  lg: '0 8px 30px rgba(0,0,0,0.12)',
-  xl: '0 20px 60px rgba(0,0,0,0.15)',
+  sm: '0 1px 2px rgba(0,0,0,0.05)',
+  md: '0 2px 8px rgba(0,0,0,0.08)',
+  lg: '0 4px 16px rgba(0,0,0,0.1)',
+  xl: '0 8px 30px rgba(0,0,0,0.1)',
 } as const;
 
 export const borderRadius = {
   none: '0',
   sm: '0.25rem',
-  md: '0.5rem',
-  lg: '1rem',
-  xl: '1.5rem',
+  md: '0.375rem',
+  lg: '0.5rem',
+  xl: '0.75rem',
   full: '9999px',
 } as const;

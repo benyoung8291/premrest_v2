@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { colors, typography, borderRadius, transitions } from '@/app/lib/tokens';
+import { colors, typography, transitions } from '@/app/lib/tokens';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -17,36 +17,36 @@ interface ButtonProps {
 
 const variants = {
   primary: {
-    background: colors.orange.DEFAULT,
-    color: colors.white,
-    border: 'none',
-    hoverBg: colors.orange.dark,
-  },
-  secondary: {
     background: colors.charcoal.DEFAULT,
     color: colors.white,
     border: 'none',
-    hoverBg: colors.charcoal.dark,
+    hoverBg: colors.charcoal.light,
+  },
+  secondary: {
+    background: colors.white,
+    color: colors.charcoal.DEFAULT,
+    border: `1px solid ${colors.charcoal.DEFAULT}`,
+    hoverBg: colors.charcoal.DEFAULT,
+    hoverColor: colors.white,
   },
   outline: {
     background: 'transparent',
     color: colors.charcoal.DEFAULT,
-    border: `2px solid ${colors.charcoal.DEFAULT}`,
-    hoverBg: colors.charcoal.DEFAULT,
-    hoverColor: colors.white,
+    border: `1px solid ${colors.charcoal[300]}`,
+    hoverBg: colors.cream[200],
   },
   ghost: {
     background: 'transparent',
-    color: colors.orange.DEFAULT,
+    color: colors.charcoal.DEFAULT,
     border: 'none',
-    hoverBg: colors.orange[50],
+    hoverBg: colors.cream[200],
   },
 };
 
 const sizes = {
   sm: { padding: '0.5rem 1.25rem', fontSize: typography.fontSize['body-sm'] },
-  md: { padding: '0.75rem 2rem', fontSize: typography.fontSize['body-md'] },
-  lg: { padding: '1rem 2.5rem', fontSize: typography.fontSize['body-lg'] },
+  md: { padding: '0.75rem 1.75rem', fontSize: typography.fontSize['body-md'] },
+  lg: { padding: '0.875rem 2.25rem', fontSize: typography.fontSize['body-lg'] },
 };
 
 export default function Button({
@@ -71,18 +71,17 @@ export default function Button({
     padding: s.padding,
     fontSize: s.fontSize,
     fontFamily: typography.fontFamily.body,
-    fontWeight: typography.fontWeight.semibold,
-    letterSpacing: typography.letterSpacing.wide,
-    textTransform: 'uppercase' as const,
+    fontWeight: typography.fontWeight.medium,
+    letterSpacing: typography.letterSpacing.normal,
     background: v.background,
     color: v.color,
     border: v.border,
-    borderRadius: borderRadius.full,
+    borderRadius: '0.25rem',
     cursor: disabled ? 'not-allowed' : 'pointer',
     textDecoration: 'none',
     transition: transitions.normal,
     width: fullWidth ? '100%' : 'auto',
-    lineHeight: 1,
+    lineHeight: 1.2,
     opacity: disabled ? 0.5 : 1,
     pointerEvents: disabled ? 'none' as const : 'auto' as const,
   };
@@ -97,11 +96,10 @@ export default function Button({
       className={className}
       style={style}
       whileHover={{
-        scale: 1.03,
         backgroundColor: v.hoverBg,
         color: (v as any).hoverColor || v.color,
       }}
-      whileTap={{ scale: 0.97 }}
+      whileTap={{ scale: 0.98 }}
     >
       {children}
     </Component>

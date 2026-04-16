@@ -1,219 +1,145 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { colors, typography, spacing, layout, shadows, transitions, borderRadius } from '@/app/lib/tokens';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { colors, typography, spacing, layout, shadows } from '@/app/lib/tokens';
 
-interface MegaMenuItem {
+interface NavItem {
   label: string;
-  href: string;
-  description?: string;
+  href?: string;
+  children?: { label: string; href: string }[];
 }
 
-interface MegaMenuSection {
-  title: string;
-  items: MegaMenuItem[];
-  featured?: {
-    image: string;
-    title: string;
-    description: string;
-    href: string;
-  };
-  illustration?: string;
-}
+const navItems: NavItem[] = [
+  {
+    label: 'Services',
+    children: [
+      { label: 'Cleaning', href: '/cleaning' },
+      { label: 'Installation', href: '/installs' },
+      { label: 'Special Projects', href: '/special-projects' },
+    ],
+  },
+  {
+    label: 'Industries',
+    children: [
+      { label: 'Facility Managers', href: '/facility-managers' },
+      { label: 'Builders & Developers', href: '/builders-developers' },
+      { label: 'Building Managers', href: '/building-managers' },
+      { label: 'Procurement Managers', href: '/procurement-managers' },
+      { label: 'Sustainability Managers', href: '/sustainability-managers' },
+    ],
+  },
+  {
+    label: 'Projects',
+    href: '/projects',
+  },
+  {
+    label: 'About',
+    children: [
+      { label: 'Our Story', href: '/about' },
+      { label: 'Sustainability', href: '/sustainability' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Case Studies', href: '/case-studies' },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '/resources',
+  },
+];
 
-const menuData: Record<string, MegaMenuSection> = {
-  services: {
-    title: 'Services',
-    items: [
-      { label: 'Cleaning', href: '/cleaning', description: 'Commercial floor care and maintenance' },
-      { label: 'Installs', href: '/installs', description: 'Professional flooring installation' },
-      { label: 'Special Projects', href: '/special-projects', description: 'Bespoke flooring solutions' },
-    ],
-    featured: {
-      image: '/images/Home_FeaturedImage.jpg',
-      title: 'Latest Project',
-      description: 'See our most recent commercial flooring transformation',
-      href: '/projects',
-    },
-    illustration: '/images/Premrest_Patch_Orange.svg',
-  },
-  industries: {
-    title: 'Industries',
-    items: [
-      { label: 'Facility Managers', href: '/facility-managers', description: 'Ongoing floor care for large spaces' },
-      { label: 'Builders & Developers', href: '/builders-developers', description: 'New builds and installations' },
-      { label: 'Building Managers', href: '/building-managers', description: 'Multi-tenant floor management' },
-      { label: 'Procurement Managers', href: '/procurement-managers', description: 'Contract flooring solutions' },
-      { label: 'Sustainability Managers', href: '/sustainability-managers', description: 'Eco-responsible flooring' },
-    ],
-    illustration: '/images/Premrest_Home_Facilities_Illustration.svg',
-  },
-  about: {
-    title: 'About',
-    items: [
-      { label: 'Our Story', href: '/about', description: 'The people behind Premrest' },
-      { label: 'Sustainability', href: '/sustainability', description: 'Our commitment to the environment' },
-      { label: 'Careers', href: '/careers', description: 'Join the team' },
-      { label: 'Case Studies', href: '/case-studies', description: 'Our work in detail' },
-    ],
-    featured: {
-      image: '/images/FeaturedImage_About.jpg',
-      title: "Let's Talk Facilities",
-      description: 'Listen to our latest podcast episode',
-      href: '/lets-talk-facilities',
-    },
-  },
-  resources: {
-    title: 'Resources',
-    items: [
-      { label: 'All Resources', href: '/resources', description: 'Guides, articles, and more' },
-      { label: 'Let\'s Talk Facilities', href: '/lets-talk-facilities', description: 'Our facilities podcast' },
-      { label: 'Let\'s Talk Sustainability', href: '/lets-talk-sustainability', description: 'Our sustainability podcast' },
-      { label: 'Projects', href: '/projects', description: 'Portfolio of our work' },
-    ],
-  },
-};
+function PromoBanner({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div
+      style={{
+        background: colors.charcoal.DEFAULT,
+        color: colors.white,
+        textAlign: 'center',
+        padding: `${spacing[2]} ${spacing[4]}`,
+        fontSize: typography.fontSize['body-sm'],
+        fontFamily: typography.fontFamily.body,
+        fontWeight: typography.fontWeight.medium,
+        letterSpacing: typography.letterSpacing.wide,
+        position: 'relative',
+      }}
+    >
+      <span>Free consultation on all commercial flooring projects — <a href="/contact" style={{ textDecoration: 'underline', color: 'inherit' }}>Get in touch</a></span>
+      <button
+        onClick={onDismiss}
+        aria-label="Dismiss banner"
+        style={{
+          position: 'absolute',
+          right: spacing[4],
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'none',
+          border: 'none',
+          color: colors.white,
+          cursor: 'pointer',
+          fontSize: '18px',
+          lineHeight: 1,
+          padding: spacing[1],
+          opacity: 0.7,
+        }}
+      >
+        ×
+      </button>
+    </div>
+  );
+}
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [showBanner, setShowBanner] = useState(true);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const progressScaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
-  // Hero-aware: white text when on hero (not scrolled), dark when scrolled
-  const textColor = scrolled ? colors.charcoal.DEFAULT : colors.white;
-  const logoFilter = scrolled ? 'none' : 'brightness(10)';
+  const handleMouseEnter = (label: string) => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
 
   return (
     <>
-      <motion.nav
+      {/* Promo banner */}
+      {showBanner && <PromoBanner onDismiss={() => setShowBanner(false)} />}
+
+      {/* Main navigation */}
+      <nav
         style={{
-          position: 'fixed',
+          background: colors.white,
+          borderBottom: `1px solid ${colors.cream[400]}`,
+          position: 'sticky',
           top: 0,
-          left: 0,
-          right: 0,
           zIndex: 1000,
-          background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-          borderBottom: scrolled ? `1px solid ${colors.charcoal[100]}` : '1px solid transparent',
-          transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         }}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div
           style={{
+            maxWidth: layout.maxWidth,
+            margin: '0 auto',
+            padding: `${spacing[4]} ${layout.gutter}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            maxWidth: layout.maxWidth,
-            margin: '0 auto',
-            padding: `${scrolled ? spacing[3] : spacing[5]} ${layout.gutter}`,
-            transition: 'padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
           }}
         >
-          {/* Logo */}
-          <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/images/Premrest_Main_Charcoal.svg"
-              alt="Premrest"
-              style={{
-                height: scrolled ? '28px' : '34px',
-                width: 'auto',
-                transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                filter: logoFilter,
-              }}
-            />
-          </a>
-
-          {/* Desktop menu items */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: spacing[1],
-            }}
-            className="nav-desktop"
-          >
-            {Object.entries(menuData).map(([key, section]) => (
-              <div
-                key={key}
-                onMouseEnter={() => setActiveMenu(key)}
-                onMouseLeave={() => setActiveMenu(null)}
-                style={{ position: 'relative' }}
-              >
-                <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    padding: `${spacing[2]} ${spacing[4]}`,
-                    fontFamily: typography.fontFamily.body,
-                    fontSize: typography.fontSize['body-sm'],
-                    fontWeight: typography.fontWeight.medium,
-                    color: activeMenu === key ? colors.orange.DEFAULT : textColor,
-                    letterSpacing: typography.letterSpacing.wide,
-                    textTransform: 'uppercase',
-                    transition: 'color 0.3s',
-                  }}
-                >
-                  {section.title}
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA + Mobile toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: spacing[3] }}>
-            <a
-              href="tel:1300207915"
-              className="nav-phone"
-              style={{
-                fontFamily: typography.fontFamily.body,
-                fontSize: typography.fontSize['body-sm'],
-                fontWeight: typography.fontWeight.semibold,
-                color: textColor,
-                textDecoration: 'none',
-                letterSpacing: typography.letterSpacing.wide,
-                transition: 'color 0.3s',
-              }}
-            >
-              1300 207 915
-            </a>
-            <motion.a
-              href="/contact"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: `${spacing[2]} ${spacing[5]}`,
-                background: colors.orange.DEFAULT,
-                color: colors.white,
-                fontFamily: typography.fontFamily.body,
-                fontSize: typography.fontSize['body-xs'],
-                fontWeight: typography.fontWeight.semibold,
-                letterSpacing: typography.letterSpacing.wide,
-                textTransform: 'uppercase',
-                borderRadius: '9999px',
-                textDecoration: 'none',
-                lineHeight: 1,
-              }}
-              whileHover={{ scale: 1.03, backgroundColor: colors.orange.dark }}
-              whileTap={{ scale: 0.97 }}
-              className="nav-cta"
-            >
-              Get in Touch
-            </motion.a>
-
+          {/* Left: hamburger (mobile) + nav links (desktop) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: spacing[1], flex: 1 }}>
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -230,281 +156,375 @@ export default function Navigation() {
               aria-label="Toggle menu"
             >
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
-                animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                style={{ display: 'block', width: '22px', height: '1.5px', background: colors.charcoal.DEFAULT }}
+                animate={mobileOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
               />
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
+                style={{ display: 'block', width: '22px', height: '1.5px', background: colors.charcoal.DEFAULT }}
                 animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
               />
               <motion.span
-                style={{ display: 'block', width: '24px', height: '2px', background: textColor, transition: 'background 0.3s' }}
-                animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                style={{ display: 'block', width: '22px', height: '1.5px', background: colors.charcoal.DEFAULT }}
+                animate={mobileOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
               />
             </button>
-          </div>
-        </div>
 
-        {/* Mega Menu Dropdown */}
-        <AnimatePresence>
-          {activeMenu && menuData[activeMenu] && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={() => setActiveMenu(activeMenu)}
-              onMouseLeave={() => setActiveMenu(null)}
-              style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                background: colors.white,
-                borderBottom: `1px solid ${colors.charcoal[100]}`,
-                boxShadow: shadows.lg,
-              }}
-            >
-              <div
-                style={{
-                  maxWidth: layout.contentWidth,
-                  margin: '0 auto',
-                  padding: `${spacing[8]} ${layout.gutter}`,
-                  display: 'grid',
-                  gridTemplateColumns: menuData[activeMenu].featured
-                    ? '1fr 1fr 300px'
-                    : menuData[activeMenu].illustration
-                      ? '1fr 200px'
-                      : '1fr',
-                  gap: spacing[8],
-                  alignItems: 'start',
-                }}
-              >
-                {/* Menu items */}
-                <div>
-                  <p
-                    style={{
-                      fontFamily: typography.fontFamily.body,
-                      fontSize: typography.fontSize.label,
-                      fontWeight: typography.fontWeight.semibold,
-                      letterSpacing: typography.letterSpacing.widest,
-                      textTransform: 'uppercase',
-                      color: colors.orange.DEFAULT,
-                      marginBottom: spacing[4],
-                      marginTop: 0,
-                    }}
-                  >
-                    {menuData[activeMenu].title}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: spacing[1] }}>
-                    {menuData[activeMenu].items.map((item) => (
-                      <motion.a
-                        key={item.href}
-                        href={item.href}
+            {/* Desktop nav links */}
+            <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: spacing[1] }}>
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  onMouseEnter={() => item.children ? handleMouseEnter(item.label) : undefined}
+                  onMouseLeave={item.children ? handleMouseLeave : undefined}
+                  style={{ position: 'relative' }}
+                >
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      style={{
+                        padding: `${spacing[2]} ${spacing[3]}`,
+                        fontFamily: typography.fontFamily.body,
+                        fontSize: typography.fontSize['body-sm'],
+                        fontWeight: typography.fontWeight.medium,
+                        color: colors.charcoal.DEFAULT,
+                        textDecoration: 'none',
+                        display: 'block',
+                        transition: 'color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = colors.charcoal[400]}
+                      onMouseLeave={(e) => e.currentTarget.style.color = colors.charcoal.DEFAULT}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <button
+                      style={{
+                        padding: `${spacing[2]} ${spacing[3]}`,
+                        fontFamily: typography.fontFamily.body,
+                        fontSize: typography.fontSize['body-sm'],
+                        fontWeight: typography.fontWeight.medium,
+                        color: activeDropdown === item.label ? colors.charcoal[400] : colors.charcoal.DEFAULT,
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: spacing[1],
+                        transition: 'color 0.2s ease',
+                      }}
+                    >
+                      {item.label}
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ transition: 'transform 0.2s ease', transform: activeDropdown === item.label ? 'rotate(180deg)' : 'rotate(0)' }}>
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                  )}
+
+                  {/* Dropdown */}
+                  <AnimatePresence>
+                    {item.children && activeDropdown === item.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.15 }}
+                        onMouseEnter={() => handleMouseEnter(item.label)}
+                        onMouseLeave={handleMouseLeave}
                         style={{
-                          display: 'block',
-                          padding: `${spacing[3]} ${spacing[4]}`,
-                          borderRadius: '8px',
-                          textDecoration: 'none',
-                          transition: transitions.fast,
+                          position: 'absolute',
+                          top: '100%',
+                          left: 0,
+                          background: colors.white,
+                          border: `1px solid ${colors.cream[400]}`,
+                          borderRadius: '0.375rem',
+                          boxShadow: shadows.lg,
+                          minWidth: '220px',
+                          padding: `${spacing[2]} 0`,
+                          zIndex: 100,
                         }}
-                        whileHover={{ backgroundColor: colors.offWhite, x: 4 }}
                       >
-                        <span
-                          style={{
-                            display: 'block',
-                            fontFamily: typography.fontFamily.headline,
-                            fontSize: typography.fontSize['body-md'],
-                            fontWeight: typography.fontWeight.bold,
-                            color: colors.charcoal.DEFAULT,
-                          }}
-                        >
-                          {item.label}
-                        </span>
-                        {item.description && (
-                          <span
+                        {item.children.map((child) => (
+                          <a
+                            key={child.href}
+                            href={child.href}
                             style={{
                               display: 'block',
+                              padding: `${spacing[2]} ${spacing[4]}`,
                               fontFamily: typography.fontFamily.body,
-                              fontSize: typography.fontSize['body-xs'],
-                              color: colors.charcoal[400],
-                              marginTop: '2px',
+                              fontSize: typography.fontSize['body-sm'],
+                              color: colors.charcoal.DEFAULT,
+                              textDecoration: 'none',
+                              transition: 'background 0.15s ease',
                             }}
+                            onMouseEnter={(e) => e.currentTarget.style.background = colors.cream[200]}
+                            onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                           >
-                            {item.description}
-                          </span>
-                        )}
-                      </motion.a>
-                    ))}
-                  </div>
+                            {child.label}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Featured content */}
-                {menuData[activeMenu].featured && (
-                  <motion.a
-                    href={menuData[activeMenu].featured!.href}
-                    style={{
-                      display: 'block',
-                      textDecoration: 'none',
-                      borderRadius: borderRadius.lg,
-                      overflow: 'hidden',
-                      background: colors.offWhite,
-                    }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <img
-                      src={menuData[activeMenu].featured!.image}
-                      alt={menuData[activeMenu].featured!.title}
-                      style={{
-                        width: '100%',
-                        height: '160px',
-                        objectFit: 'cover',
-                        display: 'block',
-                      }}
-                    />
-                    <div style={{ padding: spacing[4] }}>
-                      <span
-                        style={{
-                          fontFamily: typography.fontFamily.body,
-                          fontSize: typography.fontSize.label,
-                          fontWeight: typography.fontWeight.semibold,
-                          letterSpacing: typography.letterSpacing.wider,
-                          textTransform: 'uppercase',
-                          color: colors.orange.DEFAULT,
-                        }}
-                      >
-                        Featured
-                      </span>
-                      <p
-                        style={{
-                          fontFamily: typography.fontFamily.headline,
-                          fontSize: typography.fontSize['body-md'],
-                          fontWeight: typography.fontWeight.bold,
-                          color: colors.charcoal.DEFAULT,
-                          margin: `${spacing[1]} 0 0`,
-                        }}
-                      >
-                        {menuData[activeMenu].featured!.title}
-                      </p>
-                    </div>
-                  </motion.a>
-                )}
+          {/* Center: Logo */}
+          <a
+            href="/"
+            style={{
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}
+          >
+            <img
+              src="/images/Premrest_Main_Charcoal.svg"
+              alt="Premrest"
+              style={{ height: '28px', width: 'auto' }}
+            />
+          </a>
 
-                {/* Illustration */}
-                {menuData[activeMenu].illustration && !menuData[activeMenu].featured && (
-                  <motion.img
-                    src={menuData[activeMenu].illustration!}
-                    alt=""
-                    role="presentation"
-                    style={{ width: '100%', height: 'auto', opacity: 0.7 }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.7, scale: 1 }}
-                    transition={{ duration: 0.4 }}
-                  />
-                )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.nav>
+          {/* Right: icons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: spacing[4], flex: 1, justifyContent: 'flex-end' }}>
+            {/* Search icon */}
+            <a
+              href="/search"
+              aria-label="Search"
+              style={{
+                color: colors.charcoal.DEFAULT,
+                display: 'flex',
+                alignItems: 'center',
+                padding: spacing[1],
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+            </a>
+
+            {/* Phone icon */}
+            <a
+              href="tel:1300207915"
+              aria-label="Call us"
+              className="nav-phone-icon"
+              style={{
+                color: colors.charcoal.DEFAULT,
+                display: 'flex',
+                alignItems: 'center',
+                padding: spacing[1],
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+              </svg>
+            </a>
+
+            {/* Contact button */}
+            <a
+              href="/contact"
+              className="nav-contact-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: `${spacing[2]} ${spacing[5]}`,
+                background: colors.charcoal.DEFAULT,
+                color: colors.white,
+                fontFamily: typography.fontFamily.body,
+                fontSize: typography.fontSize['body-sm'],
+                fontWeight: typography.fontWeight.medium,
+                borderRadius: '0.25rem',
+                textDecoration: 'none',
+                lineHeight: 1,
+                transition: 'background 0.2s ease',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = colors.charcoal.light}
+              onMouseLeave={(e) => e.currentTarget.style.background = colors.charcoal.DEFAULT}
+            >
+              Get a Quote
+            </a>
+          </div>
+        </div>
+      </nav>
 
       {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '-100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '-100%' }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              bottom: 0,
+              width: '85%',
+              maxWidth: '380px',
+              zIndex: 1001,
+              background: colors.white,
+              overflowY: 'auto',
+              boxShadow: '4px 0 20px rgba(0,0,0,0.1)',
+            }}
+          >
+            {/* Close button */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: `${spacing[4]} ${spacing[5]}`, borderBottom: `1px solid ${colors.cream[400]}` }}>
+              <img src="/images/Premrest_Main_Charcoal.svg" alt="Premrest" style={{ height: '24px' }} />
+              <button
+                onClick={() => setMobileOpen(false)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: spacing[2], fontSize: '24px', color: colors.charcoal.DEFAULT }}
+                aria-label="Close menu"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Mobile nav links */}
+            <div style={{ padding: `${spacing[4]} 0` }}>
+              {navItems.map((item) => (
+                <div key={item.label} style={{ borderBottom: `1px solid ${colors.cream[300]}` }}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: `${spacing[4]} ${spacing[5]}`,
+                        fontFamily: typography.fontFamily.body,
+                        fontSize: typography.fontSize['body-md'],
+                        fontWeight: typography.fontWeight.medium,
+                        color: colors.charcoal.DEFAULT,
+                        textDecoration: 'none',
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          width: '100%',
+                          padding: `${spacing[4]} ${spacing[5]}`,
+                          fontFamily: typography.fontFamily.body,
+                          fontSize: typography.fontSize['body-md'],
+                          fontWeight: typography.fontWeight.medium,
+                          color: colors.charcoal.DEFAULT,
+                          background: 'none',
+                          border: 'none',
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                        }}
+                      >
+                        {item.label}
+                        <svg
+                          width="12"
+                          height="7"
+                          viewBox="0 0 12 7"
+                          fill="none"
+                          style={{ transition: 'transform 0.2s ease', transform: mobileExpanded === item.label ? 'rotate(180deg)' : 'rotate(0)' }}
+                        >
+                          <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {mobileExpanded === item.label && item.children && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            style={{ overflow: 'hidden', background: colors.cream[100] }}
+                          >
+                            {item.children.map((child) => (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setMobileOpen(false)}
+                                style={{
+                                  display: 'block',
+                                  padding: `${spacing[3]} ${spacing[5]} ${spacing[3]} ${spacing[8]}`,
+                                  fontFamily: typography.fontFamily.body,
+                                  fontSize: typography.fontSize['body-sm'],
+                                  color: colors.charcoal[500],
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                {child.label}
+                              </a>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile CTA */}
+            <div style={{ padding: `${spacing[6]} ${spacing[5]}` }}>
+              <a
+                href="tel:1300207915"
+                style={{
+                  display: 'block',
+                  fontFamily: typography.fontFamily.body,
+                  fontSize: typography.fontSize['body-md'],
+                  fontWeight: typography.fontWeight.semibold,
+                  color: colors.charcoal.DEFAULT,
+                  textDecoration: 'none',
+                  marginBottom: spacing[4],
+                }}
+              >
+                1300 207 915
+              </a>
+              <a
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  padding: `${spacing[3]} ${spacing[6]}`,
+                  background: colors.charcoal.DEFAULT,
+                  color: colors.white,
+                  fontFamily: typography.fontFamily.body,
+                  fontSize: typography.fontSize['body-sm'],
+                  fontWeight: typography.fontWeight.medium,
+                  borderRadius: '0.25rem',
+                  textDecoration: 'none',
+                }}
+              >
+                Get a Quote
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile overlay backdrop */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setMobileOpen(false)}
             style={{
               position: 'fixed',
               inset: 0,
-              zIndex: 999,
-              background: colors.charcoal.dark,
-              paddingTop: '80px',
-              overflowY: 'auto',
+              background: 'rgba(0,0,0,0.3)',
+              zIndex: 1000,
             }}
-          >
-            <div style={{ padding: `${spacing[8]} ${layout.gutter}` }}>
-              {Object.entries(menuData).map(([key, section], sectionIdx) => (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: sectionIdx * 0.1, duration: 0.5 }}
-                  style={{ marginBottom: spacing[8] }}
-                >
-                  <p
-                    style={{
-                      fontFamily: typography.fontFamily.body,
-                      fontSize: typography.fontSize.label,
-                      fontWeight: typography.fontWeight.semibold,
-                      letterSpacing: typography.letterSpacing.widest,
-                      textTransform: 'uppercase',
-                      color: colors.orange.DEFAULT,
-                      marginBottom: spacing[3],
-                      marginTop: 0,
-                    }}
-                  >
-                    {section.title}
-                  </p>
-                  {section.items.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      style={{
-                        display: 'block',
-                        padding: `${spacing[3]} 0`,
-                        fontFamily: typography.fontFamily.headline,
-                        fontSize: typography.fontSize['heading-sm'],
-                        fontWeight: typography.fontWeight.bold,
-                        color: colors.white,
-                        textDecoration: 'none',
-                        borderBottom: `1px solid ${colors.charcoal[700]}`,
-                      }}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </motion.div>
-              ))}
-              <div style={{ marginTop: spacing[8] }}>
-                <a
-                  href="tel:1300207915"
-                  style={{
-                    display: 'block',
-                    fontFamily: typography.fontFamily.headline,
-                    fontSize: typography.fontSize['heading-md'],
-                    fontWeight: typography.fontWeight.heavy,
-                    color: colors.orange.DEFAULT,
-                    textDecoration: 'none',
-                    marginBottom: spacing[4],
-                  }}
-                >
-                  1300 207 915
-                </a>
-                <a
-                  href="/contact"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: `${spacing[3]} ${spacing[6]}`,
-                    background: colors.orange.DEFAULT,
-                    color: colors.white,
-                    fontFamily: typography.fontFamily.body,
-                    fontSize: typography.fontSize['body-md'],
-                    fontWeight: typography.fontWeight.semibold,
-                    letterSpacing: typography.letterSpacing.wide,
-                    textTransform: 'uppercase',
-                    borderRadius: '9999px',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Get in Touch
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          />
         )}
       </AnimatePresence>
 
@@ -512,29 +532,16 @@ export default function Navigation() {
       <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 1024px) {
           .nav-desktop { display: none !important; }
-          .nav-phone { display: none !important; }
-          .nav-cta { display: none !important; }
+          .nav-contact-btn { display: none !important; }
           .nav-hamburger { display: flex !important; }
         }
         @media (min-width: 1025px) {
           .nav-hamburger { display: none !important; }
         }
+        @media (max-width: 480px) {
+          .nav-phone-icon { display: none !important; }
+        }
       ` }} />
-
-      {/* Scroll progress bar */}
-      <motion.div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '3px',
-          background: `linear-gradient(90deg, ${colors.orange.DEFAULT}, ${colors.cream.DEFAULT})`,
-          transformOrigin: '0%',
-          zIndex: 1001,
-          scaleX: progressScaleX,
-        }}
-      />
     </>
   );
 }
