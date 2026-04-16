@@ -18,7 +18,7 @@ const clientLogos = [
   { name: 'Pinsent Masons', src: '/images/PinsentMasons.svg' },
 ];
 
-function MarqueeRow({ direction = 'left', duration = 35 }: { direction?: 'left' | 'right'; duration?: number }) {
+function MarqueeRow({ direction = 'left', duration = 40 }: { direction?: 'left' | 'right'; duration?: number }) {
   const logos = [...clientLogos, ...clientLogos];
   const isLeft = direction === 'left';
 
@@ -30,9 +30,9 @@ function MarqueeRow({ direction = 'left', duration = 35 }: { direction?: 'left' 
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '120px',
+          width: '100px',
           height: '100%',
-          background: `linear-gradient(to right, ${colors.charcoal.dark}, transparent)`,
+          background: `linear-gradient(to right, ${colors.offWhite}, transparent)`,
           zIndex: 2,
           pointerEvents: 'none',
         }}
@@ -42,9 +42,9 @@ function MarqueeRow({ direction = 'left', duration = 35 }: { direction?: 'left' 
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '120px',
+          width: '100px',
           height: '100%',
-          background: `linear-gradient(to left, ${colors.charcoal.dark}, transparent)`,
+          background: `linear-gradient(to left, ${colors.offWhite}, transparent)`,
           zIndex: 2,
           pointerEvents: 'none',
         }}
@@ -73,21 +73,19 @@ function MarqueeRow({ direction = 'left', duration = 35 }: { direction?: 'left' 
             src={logo.src}
             alt={logo.name}
             style={{
-              height: '28px',
+              height: '26px',
               width: 'auto',
-              opacity: 0.35,
-              filter: 'grayscale(100%) brightness(2.5)',
-              transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              opacity: 0.4,
+              filter: 'grayscale(100%)',
+              transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.opacity = '1';
-              e.currentTarget.style.filter = 'grayscale(0%) brightness(1)';
-              e.currentTarget.style.transform = 'scale(1.15)';
+              e.currentTarget.style.filter = 'grayscale(0%)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '0.35';
-              e.currentTarget.style.filter = 'grayscale(100%) brightness(2.5)';
-              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.opacity = '0.4';
+              e.currentTarget.style.filter = 'grayscale(100%)';
             }}
           />
         ))}
@@ -104,35 +102,32 @@ export default function LogoMarquee() {
     <section
       ref={ref}
       style={{
-        padding: `${spacing[12]} 0`,
-        background: colors.charcoal.dark,
+        padding: `${spacing[10]} 0`,
+        background: colors.offWhite,
         overflow: 'hidden',
         position: 'relative',
       }}
     >
       <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={isInView ? { opacity: 1, y: 0 } : undefined}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : undefined}
         transition={{ duration: 0.5 }}
         style={{
           textAlign: 'center',
           fontFamily: typography.fontFamily.body,
           fontSize: typography.fontSize.label,
           fontWeight: typography.fontWeight.semibold,
-          letterSpacing: typography.letterSpacing.widest,
+          letterSpacing: typography.letterSpacing.wider,
           textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
-          marginBottom: spacing[8],
+          color: colors.charcoal[400],
+          marginBottom: spacing[6],
           marginTop: 0,
         }}
       >
         Trusted by Australia&apos;s leading organisations
       </motion.p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: spacing[6] }}>
-        <MarqueeRow direction="left" duration={40} />
-        <MarqueeRow direction="right" duration={45} />
-      </div>
+      <MarqueeRow direction="left" duration={40} />
     </section>
   );
 }

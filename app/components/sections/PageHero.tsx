@@ -1,7 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { colors, typography, spacing, layout } from '@/app/lib/tokens';
 
 interface PageHeroProps {
@@ -17,44 +16,27 @@ export default function PageHero({
   title,
   subtitle,
   backgroundImage,
-  backgroundColor = colors.charcoal.dark,
-  accentColor = colors.orange.DEFAULT,
+  backgroundColor = colors.charcoal.DEFAULT,
+  accentColor,
   compact = false,
 }: PageHeroProps) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  const words = title.split(' ');
-
   return (
     <section
-      ref={ref}
-      className="noise-overlay"
       style={{
         position: 'relative',
-        minHeight: compact ? '50vh' : '70vh',
+        minHeight: compact ? '40vh' : '55vh',
         display: 'flex',
         alignItems: 'center',
         background: backgroundColor,
         overflow: 'hidden',
       }}
     >
-      {/* Background image with parallax */}
+      {/* Background image */}
       {backgroundImage && (
-        <motion.div
+        <div
           style={{
             position: 'absolute',
-            inset: '-10%',
-            y: imageY,
-            scale: imageScale,
+            inset: 0,
           }}
         >
           <img
@@ -67,45 +49,18 @@ export default function PageHero({
               objectPosition: 'center 40%',
             }}
           />
-        </motion.div>
+        </div>
       )}
 
-      {/* Gradient overlay */}
+      {/* Overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background: backgroundImage
-            ? `linear-gradient(135deg, ${backgroundColor}ee 0%, ${backgroundColor}bb 40%, ${backgroundColor}88 100%)`
+            ? 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)'
             : 'transparent',
         }}
-      />
-
-      {/* Bottom gradient fade */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '30%',
-          background: `linear-gradient(transparent, ${backgroundColor})`,
-        }}
-      />
-
-      {/* Accent line */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '4px',
-          background: `linear-gradient(90deg, ${accentColor}, ${colors.cream.DEFAULT})`,
-        }}
-        initial={{ scaleX: 0, transformOrigin: 'left' }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       />
 
       {/* Content */}
@@ -115,42 +70,26 @@ export default function PageHero({
           zIndex: 2,
           maxWidth: layout.contentWidth,
           margin: '0 auto',
-          padding: `${compact ? spacing[20] : spacing[32]} ${layout.gutter}`,
-          paddingTop: compact ? spacing[32] : spacing[40],
-          y: textY,
-          opacity,
+          padding: `${compact ? spacing[20] : spacing[24]} ${layout.gutter}`,
+          paddingTop: compact ? spacing[24] : spacing[32],
         }}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <h1
           style={{
             fontFamily: typography.fontFamily.headline,
             fontSize: typography.fontSize['display-md'],
-            fontWeight: typography.fontWeight.heavy,
-            lineHeight: typography.lineHeight.tight,
+            fontWeight: typography.fontWeight.bold,
+            lineHeight: typography.lineHeight.snug,
             letterSpacing: typography.letterSpacing.tight,
             color: colors.white,
             margin: 0,
-            maxWidth: '900px',
+            maxWidth: '800px',
           }}
         >
-          <span style={{ display: 'flex', flexWrap: 'wrap', gap: '0 0.3em' }}>
-            {words.map((word, i) => (
-              <span key={i} style={{ overflow: 'hidden', display: 'inline-block' }}>
-                <motion.span
-                  style={{ display: 'inline-block' }}
-                  initial={{ y: '110%' }}
-                  animate={{ y: '0%' }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.3 + i * 0.05,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
-                >
-                  {word}
-                </motion.span>
-              </span>
-            ))}
-          </span>
+          {title}
         </h1>
 
         {subtitle && (
@@ -158,15 +97,15 @@ export default function PageHero({
             style={{
               fontFamily: typography.fontFamily.body,
               fontSize: typography.fontSize['body-lg'],
-              fontWeight: typography.fontWeight.light,
+              fontWeight: typography.fontWeight.regular,
               lineHeight: typography.lineHeight.relaxed,
-              color: colors.charcoal[200],
-              marginTop: spacing[6],
-              maxWidth: '600px',
+              color: 'rgba(255,255,255,0.8)',
+              marginTop: spacing[4],
+              maxWidth: '560px',
             }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             {subtitle}
           </motion.p>

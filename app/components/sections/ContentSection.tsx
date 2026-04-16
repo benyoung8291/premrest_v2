@@ -13,20 +13,20 @@ interface ContentSectionProps {
 const paddings = {
   sm: `${spacing[12]} 0`,
   md: `${spacing[16]} 0`,
-  lg: `${spacing[24]} 0`,
+  lg: `${spacing[20]} 0`,
 };
 
 export function ContentSection({ children, background = 'transparent', padding = 'lg' }: ContentSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
     <section ref={ref} style={{ background, padding: paddings[padding], overflow: 'hidden' }}>
       <motion.div
         style={{ maxWidth: layout.contentWidth, margin: '0 auto', padding: `0 ${layout.gutter}` }}
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={isInView ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {children}
       </motion.div>
@@ -52,14 +52,14 @@ export function TwoColumnSection({
   aspectRatio = '4/3',
 }: TwoColumnProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   const imageBlock = (
     <motion.div
-      style={{ position: 'relative', borderRadius: borderRadius.lg, overflow: 'hidden' }}
-      initial={{ opacity: 0, x: imagePosition === 'left' ? -40 : 40 }}
+      style={{ position: 'relative', borderRadius: borderRadius.md, overflow: 'hidden' }}
+      initial={{ opacity: 0, x: imagePosition === 'left' ? -16 : 16 }}
       animate={isInView ? { opacity: 1, x: 0 } : undefined}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <img
         src={image}
@@ -69,7 +69,7 @@ export function TwoColumnSection({
           aspectRatio,
           objectFit: 'cover',
           display: 'block',
-          borderRadius: borderRadius.lg,
+          borderRadius: borderRadius.md,
         }}
       />
     </motion.div>
@@ -77,17 +77,17 @@ export function TwoColumnSection({
 
   const contentBlock = (
     <motion.div
-      style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: spacing[6] }}
-      initial={{ opacity: 0, y: 30 }}
+      style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: spacing[5] }}
+      initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
   );
 
   return (
-    <section ref={ref} style={{ background, padding: `${spacing[24]} 0`, overflow: 'hidden' }}>
+    <section ref={ref} style={{ background, padding: `${spacing[16]} 0`, overflow: 'hidden' }}>
       <div
         style={{
           maxWidth: layout.contentWidth,
@@ -95,7 +95,7 @@ export function TwoColumnSection({
           padding: `0 ${layout.gutter}`,
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: spacing[16],
+          gap: spacing[12],
           alignItems: 'center',
         }}
       >
@@ -129,16 +129,16 @@ interface StepsSectionProps {
 
 export function StepsSection({ steps, background = colors.offWhite }: StepsSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section ref={ref} style={{ background, padding: `${spacing[24]} 0`, overflow: 'hidden' }}>
+    <section ref={ref} style={{ background, padding: `${spacing[16]} 0`, overflow: 'hidden' }}>
       <div style={{ maxWidth: layout.contentWidth, margin: '0 auto', padding: `0 ${layout.gutter}` }}>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${steps.length}, 1fr)`,
-            gap: spacing[8],
+            gap: spacing[6],
           }}
         >
           {steps.map((step, i) => (
@@ -146,15 +146,15 @@ export function StepsSection({ steps, background = colors.offWhite }: StepsSecti
               key={i}
               style={{
                 background: colors.white,
-                borderRadius: borderRadius.lg,
-                padding: spacing[8],
+                borderRadius: borderRadius.md,
+                padding: spacing[6],
                 boxShadow: shadows.sm,
                 position: 'relative',
                 overflow: 'hidden',
               }}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : undefined}
-              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <div
                 style={{
@@ -162,16 +162,16 @@ export function StepsSection({ steps, background = colors.offWhite }: StepsSecti
                   top: 0,
                   left: 0,
                   right: 0,
-                  height: '4px',
-                  background: `linear-gradient(90deg, ${colors.orange.DEFAULT}, ${colors.cream.DEFAULT})`,
+                  height: '3px',
+                  background: colors.charcoal.DEFAULT,
                 }}
               />
               <span
                 style={{
                   fontFamily: typography.fontFamily.headline,
                   fontSize: typography.fontSize['display-lg'],
-                  fontWeight: typography.fontWeight.heavy,
-                  color: colors.orange[100],
+                  fontWeight: typography.fontWeight.bold,
+                  color: colors.cream[400],
                   lineHeight: 1,
                   display: 'block',
                   marginBottom: spacing[4],
@@ -186,7 +186,7 @@ export function StepsSection({ steps, background = colors.offWhite }: StepsSecti
                   fontWeight: typography.fontWeight.bold,
                   color: colors.charcoal.DEFAULT,
                   margin: 0,
-                  marginBottom: spacing[3],
+                  marginBottom: spacing[2],
                 }}
               >
                 {step.title}
@@ -194,7 +194,7 @@ export function StepsSection({ steps, background = colors.offWhite }: StepsSecti
               <p
                 style={{
                   fontFamily: typography.fontFamily.body,
-                  fontSize: typography.fontSize['body-md'],
+                  fontSize: typography.fontSize['body-sm'],
                   color: colors.charcoal[500],
                   lineHeight: typography.lineHeight.relaxed,
                   margin: 0,
@@ -226,10 +226,10 @@ interface TestimonialProps {
 
 export function TestimonialSection({ quote, author, role, image }: TestimonialProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section ref={ref} style={{ background: colors.charcoal.dark, padding: `${spacing[24]} 0`, overflow: 'hidden' }}>
+    <section ref={ref} style={{ background: colors.charcoal.DEFAULT, padding: `${spacing[16]} 0`, overflow: 'hidden' }}>
       <motion.div
         style={{
           maxWidth: layout.narrowWidth,
@@ -237,31 +237,30 @@ export function TestimonialSection({ quote, author, role, image }: TestimonialPr
           padding: `0 ${layout.gutter}`,
           textAlign: 'center',
         }}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={isInView ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {image && (
           <img
             src={image}
             alt={author}
             style={{
-              width: '80px',
-              height: '80px',
+              width: '72px',
+              height: '72px',
               borderRadius: borderRadius.full,
               objectFit: 'cover',
               margin: '0 auto',
               marginBottom: spacing[6],
-              border: `3px solid ${colors.orange.DEFAULT}`,
             }}
           />
         )}
         <blockquote
           style={{
-            fontFamily: typography.fontFamily.accent,
+            fontFamily: typography.fontFamily.headline,
             fontSize: typography.fontSize['heading-md'],
             fontStyle: 'italic',
-            fontWeight: typography.fontWeight.light,
+            fontWeight: typography.fontWeight.regular,
             color: colors.white,
             lineHeight: typography.lineHeight.snug,
             margin: 0,
@@ -275,7 +274,7 @@ export function TestimonialSection({ quote, author, role, image }: TestimonialPr
             fontFamily: typography.fontFamily.body,
             fontSize: typography.fontSize['body-md'],
             fontWeight: typography.fontWeight.semibold,
-            color: colors.orange.DEFAULT,
+            color: colors.cream[300],
             margin: 0,
           }}
         >
@@ -310,19 +309,19 @@ interface CTABannerProps {
 export function CTABanner({
   heading,
   description,
-  buttonText = "Let's chat",
+  buttonText = "Get in touch",
   buttonHref = '/contact',
   background,
 }: CTABannerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
     <section
       ref={ref}
       style={{
-        background: background || `linear-gradient(135deg, ${colors.orange.DEFAULT}, ${colors.orange.dark})`,
-        padding: `${spacing[20]} 0`,
+        background: background || colors.charcoal.DEFAULT,
+        padding: `${spacing[16]} 0`,
         overflow: 'hidden',
       }}
     >
@@ -333,15 +332,15 @@ export function CTABanner({
           padding: `0 ${layout.gutter}`,
           textAlign: 'center',
         }}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={isInView ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <h2
           style={{
             fontFamily: typography.fontFamily.headline,
             fontSize: typography.fontSize['heading-xl'],
-            fontWeight: typography.fontWeight.heavy,
+            fontWeight: typography.fontWeight.bold,
             color: colors.white,
             margin: 0,
             marginBottom: description ? spacing[4] : spacing[8],
@@ -354,10 +353,10 @@ export function CTABanner({
             style={{
               fontFamily: typography.fontFamily.body,
               fontSize: typography.fontSize['body-lg'],
-              color: 'rgba(255,255,255,0.85)',
+              color: 'rgba(255,255,255,0.8)',
               margin: 0,
               marginBottom: spacing[8],
-              maxWidth: '600px',
+              maxWidth: '560px',
               marginLeft: 'auto',
               marginRight: 'auto',
             }}
@@ -365,29 +364,26 @@ export function CTABanner({
             {description}
           </p>
         )}
-        <motion.a
+        <a
           href={buttonHref}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            padding: '1rem 2.5rem',
+            padding: `${spacing[3]} ${spacing[8]}`,
             fontSize: typography.fontSize['body-md'],
             fontFamily: typography.fontFamily.body,
-            fontWeight: typography.fontWeight.semibold,
-            letterSpacing: typography.letterSpacing.wide,
-            textTransform: 'uppercase' as const,
+            fontWeight: typography.fontWeight.medium,
             background: colors.white,
-            color: colors.orange.DEFAULT,
+            color: colors.charcoal.DEFAULT,
             border: 'none',
-            borderRadius: borderRadius.full,
+            borderRadius: '0.25rem',
             cursor: 'pointer',
             textDecoration: 'none',
+            transition: 'background 0.2s ease',
           }}
-          whileHover={{ scale: 1.03, backgroundColor: colors.offWhite }}
-          whileTap={{ scale: 0.97 }}
         >
           {buttonText}
-        </motion.a>
+        </a>
       </motion.div>
     </section>
   );
@@ -448,16 +444,16 @@ export function ClientLogos({ background = colors.offWhite }: ClientLogosProps) 
               src={logo.src}
               alt={logo.alt}
               style={{
-                height: '32px',
+                height: '28px',
                 width: 'auto',
-                maxWidth: '120px',
+                maxWidth: '110px',
                 objectFit: 'contain',
-                filter: 'grayscale(100%) opacity(0.5)',
+                filter: 'grayscale(100%) opacity(0.45)',
                 transition: 'filter 0.3s',
               }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : undefined}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : undefined}
+              transition={{ duration: 0.4, delay: i * 0.04 }}
               whileHover={{ filter: 'grayscale(0%) opacity(1)' }}
             />
           ))}
@@ -493,7 +489,7 @@ interface FeatureGridProps {
 
 export function FeatureGrid({ items, columns = 3, background = 'transparent' }: FeatureGridProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
     <div
@@ -501,7 +497,7 @@ export function FeatureGrid({ items, columns = 3, background = 'transparent' }: 
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        gap: spacing[6],
+        gap: spacing[5],
       }}
     >
       {items.map((item, i) => (
@@ -509,19 +505,19 @@ export function FeatureGrid({ items, columns = 3, background = 'transparent' }: 
           key={i}
           style={{
             background: colors.white,
-            borderRadius: borderRadius.lg,
+            borderRadius: borderRadius.md,
             padding: spacing[6],
             boxShadow: shadows.sm,
           }}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           {item.icon && (
             <img
               src={item.icon}
               alt=""
-              style={{ width: '40px', height: '40px', marginBottom: spacing[4], objectFit: 'contain' }}
+              style={{ width: '36px', height: '36px', marginBottom: spacing[4], objectFit: 'contain' }}
             />
           )}
           <h4

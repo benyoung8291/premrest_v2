@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { colors, typography, borderRadius, shadows, spacing } from '@/app/lib/tokens';
+import { colors, typography, shadows, spacing } from '@/app/lib/tokens';
 
 interface CardProps {
   children: React.ReactNode;
@@ -16,26 +16,26 @@ const variantStyles = {
   default: {
     background: colors.white,
     border: 'none',
-    borderRadius: borderRadius.lg,
+    borderRadius: '0.375rem',
     boxShadow: shadows.sm,
   },
   elevated: {
     background: colors.white,
     border: 'none',
-    borderRadius: borderRadius.lg,
+    borderRadius: '0.375rem',
     boxShadow: shadows.md,
   },
   outlined: {
     background: 'transparent',
-    border: `1px solid ${colors.charcoal[200]}`,
-    borderRadius: borderRadius.lg,
+    border: `1px solid ${colors.cream[400]}`,
+    borderRadius: '0.375rem',
     boxShadow: 'none',
   },
   image: {
-    background: colors.charcoal.DEFAULT,
+    background: colors.cream[200],
     border: 'none',
-    borderRadius: borderRadius.lg,
-    boxShadow: shadows.md,
+    borderRadius: '0.375rem',
+    boxShadow: 'none',
     overflow: 'hidden' as const,
   },
 };
@@ -70,9 +70,8 @@ export default function Card({
         ...customStyle,
       }}
       whileHover={href ? {
-        y: -6,
-        boxShadow: shadows.lg,
-        transition: { duration: 0.3 },
+        boxShadow: shadows.md,
+        transition: { duration: 0.2 },
       } : undefined}
     >
       {children}
@@ -80,7 +79,6 @@ export default function Card({
   );
 }
 
-// Card subcomponents
 export function CardImage({ src, alt, aspectRatio = '16/9' }: { src: string; alt: string; aspectRatio?: string }) {
   return (
     <div style={{ position: 'relative', aspectRatio, overflow: 'hidden' }}>
@@ -93,7 +91,7 @@ export function CardImage({ src, alt, aspectRatio = '16/9' }: { src: string; alt
           objectFit: 'cover',
           display: 'block',
         }}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.4 }}
       />
     </div>
@@ -118,7 +116,7 @@ export function CardLabel({ children }: { children: React.ReactNode }) {
         fontWeight: typography.fontWeight.semibold,
         letterSpacing: typography.letterSpacing.wider,
         textTransform: 'uppercase',
-        color: colors.orange.DEFAULT,
+        color: colors.charcoal[400],
         marginBottom: spacing[2],
       }}
     >
